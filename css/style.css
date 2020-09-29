@@ -1,3 +1,17 @@
 /* .hide {
   display: none;
 } */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+ul#list li {
+  list-style: none;
+}
+
+ul#list li.list-item span i.fa-trash{
+  color: red;
+/* font-size: 40px; */
+}
