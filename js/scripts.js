@@ -5,7 +5,13 @@
             let arr = [];
             //get value for button and add event listener
             let button = document.getElementById('button');
-            button.addEventListener('click', pushData);
+            button.addEventListener('click', function() {
+              pushData();
+              clearInputField();
+            });
+            // button.addEventListener('click', pushData);
+            // button.addEventListener('click', clearInputField);
+
             function pushData()
             {
                 // get value from the input text
@@ -20,12 +26,14 @@
                 {
                     // text = text + arr[i] + "<br/>";
                     text = arr[i];
-
+                    
                 }
      
                 if(text != "") {
                   createList(text);
+                  
                 }
+                
             }
 
             function createList(item) {
@@ -37,6 +45,11 @@
               li.innerHTML = item;
 
               console.log(arr);
+            }
+
+            function clearInputField() {
+              //clear text from input field
+              document.getElementById('inputText').value = "";
             }
 
 
