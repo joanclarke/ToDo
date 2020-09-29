@@ -1,8 +1,9 @@
 
 
-            // create an array
+            // create an empty array
             // let myArr = ["A","B","C","D"];
             let arr = [];
+            //get value for button and add event listener
             let button = document.getElementById('button');
             button.addEventListener('click', pushData);
             function pushData()
@@ -17,12 +18,26 @@
                 
                 for(i = 0; i < arr.length; i++)
                 {
-                    text = text + arr[i] + "<br/>";
+                    // text = text + arr[i] + "<br/>";
+                    text = arr[i];
+
                 }
-                
-                // display array data
-                document.getElementById('pText').innerHTML = text;
+     
+                createList(text);
             }
+
+            function createList(item) {
+              //create list 
+              let li = document.createElement("li");
+              // append list item to parent element (ul)
+              document.getElementById('list').appendChild(li);
+              //display data in list format
+              li.innerHTML = item;
+
+              console.log(arr);
+            }
+
+
 
 
 
