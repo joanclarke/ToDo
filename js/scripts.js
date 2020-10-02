@@ -43,8 +43,9 @@ function createList(item) {
     li.setAttribute("class", "list-item");
     
     let checkCircle = document.createElement("span");
-  
-    checkCircle.innerHTML =  "<i class='far fa-circle'></i>";
+    let i = document.createElement("i");
+    i.setAttribute("class", "far fa-circle");
+    // checkCircle.innerHTML =  "<i class='far fa-circle'></i>";
     // circle.innerHTML = "<i class='far fa-check-circle'></i>";
     let p = document.createElement("p");
     // make data/content editable
@@ -55,6 +56,7 @@ function createList(item) {
     p.innerHTML = item;
 
     // add checklist, data/content and delete to list
+    checkCircle.appendChild(i);
     li.prepend(checkCircle);
     li.appendChild(p);
     li.appendChild(deleteTrash);
@@ -70,6 +72,19 @@ function createList(item) {
 
   checkCircle.addEventListener('click', function() {
    p.classList.toggle("slash");
+  //  let x = p.getAttribute("contenteditable"); 
+
+
+   if(i.className == "far fa-circle") {
+    i.className = "far fa-check-circle";
+
+   } else {
+    i.className = "far fa-circle";
+   }
+
+  
+  //  console.log(x);
+  // document.getElementById("demo").innerHTML = x;
 });
 
   deleteTrash.addEventListener('click', function() {
@@ -79,10 +94,15 @@ function createList(item) {
 
 //clear text from input field
 function clearInputField() {
-
   document.getElementById('inputText').value = "";
 }
 
+// if ($('#yourElement').css('position') == 'absolute')
+// {
+//    // true
+// }
+
+// $el.css({ top: "10px" }) => el.style.top = "10px"
 
 // function deleteData() {
 //   li.remove();
