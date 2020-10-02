@@ -77,9 +77,12 @@ function createList(item) {
 
    if(i.className == "far fa-circle") {
     i.className = "far fa-check-circle";
-
+     //content cannot be edited
+    p.setAttribute("contenteditable", "false");
    } else {
     i.className = "far fa-circle";
+    //content can be edited
+    p.setAttribute("contenteditable", "true");
    }
 
   
