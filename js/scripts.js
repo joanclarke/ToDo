@@ -36,24 +36,36 @@ function pushData() {
 
     //create list 
 function createList(item) {
-
+    // create list item
     let li = document.createElement("li");
-    // append list item to parent element (ul)
+       //append list item to parent element (ul)
     document.getElementById('list').appendChild(li);
+    li.setAttribute("class", "list-item");
+    
+    let p = document.createElement("p");
+    // make data/content editable
+    p.setAttribute("contenteditable", "true");
+
     let span = document.createElement("span");
-    // let i = document.createElement("i");
     span.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
-    //display data in list format
-   
-    li.innerHTML = item;
+    //display data in paragraph format
+    p.innerHTML = item;
+
+    // add paragraph and span to list
+    li.appendChild(p);
     li.appendChild(span);
-    li.setAttribute("id", "list-item");
+    // li.setAttribute("id", "list-item");
+    // p.setAttribute("display", "inherit");
+   
+
+    // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#How_does_it_work
   //remove item when trash bin icon is clicked
+  // document.querySelector('#delete').addEventListener('click', function() {
+  //   li.remove();
+  // });
     span.addEventListener('click', function() {
-      li.remove();
+        li.remove();
     });
-    // <i class="fa fa-trash" aria-hidden="true"></i>
-    // console.log(arr);
 }
 
 //clear text from input field

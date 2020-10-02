@@ -11,7 +11,13 @@ ul#list li {
   list-style: none;
 }
 
-ul#list li.list-item span i.fa-trash{
+ul#list li#list-item span i.fa-trash{
   color: red;
 /* font-size: 40px; */
+}
+
+p {
+  display: inline-block;
+  margin: 0;
+  /* padding: 0; */
 }
