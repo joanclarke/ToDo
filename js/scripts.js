@@ -42,18 +42,22 @@ function createList(item) {
     document.getElementById('list').appendChild(li);
     li.setAttribute("class", "list-item");
     
+    let checkCircle = document.createElement("span");
+  
+    checkCircle.innerHTML =  "<i class='far fa-circle'></i>";
+    // circle.innerHTML = "<i class='far fa-check-circle'></i>";
     let p = document.createElement("p");
     // make data/content editable
     p.setAttribute("contenteditable", "true");
-
-    let span = document.createElement("span");
-    span.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
+    let deleteTrash = document.createElement("span");
+    deleteTrash.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
     //display data in paragraph format
     p.innerHTML = item;
 
-    // add paragraph and span to list
+    // add checklist, data/content and delete to list
+    li.prepend(checkCircle);
     li.appendChild(p);
-    li.appendChild(span);
+    li.appendChild(deleteTrash);
     // li.setAttribute("id", "list-item");
     // p.setAttribute("display", "inherit");
    
@@ -63,7 +67,12 @@ function createList(item) {
   // document.querySelector('#delete').addEventListener('click', function() {
   //   li.remove();
   // });
-    span.addEventListener('click', function() {
+
+  checkCircle.addEventListener('click', function() {
+   p.classList.toggle("slash");
+});
+
+  deleteTrash.addEventListener('click', function() {
         li.remove();
     });
 }

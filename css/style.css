@@ -7,6 +7,10 @@ body {
   font-weight: 300;
 }
 
+div#list-container {
+  /* background-color: yellow; */
+}
+
 ul#list li {
   list-style: none;
 }
@@ -19,5 +23,10 @@ ul#list li#list-item span i.fa-trash{
 p {
   display: inline-block;
   margin: 0;
-  /* padding: 0; */
+  padding: 0 5px;
+  /* text-decoration: line-through; */
+}
+
+.slash {
+text-decoration: line-through;
 }
