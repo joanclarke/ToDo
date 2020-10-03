@@ -44,6 +44,9 @@ function createList(item) {
 let liCompleted = document.createElement("li");
 
 let trashSpan = document.createElement("span");
+let checkCircleCompleted = document.createElement("span");
+let iCompleted = document.createElement("i");
+
 
     // create list item
     let li = document.createElement("li");
@@ -101,11 +104,15 @@ let trashSpan = document.createElement("span");
    if(i.className == "far fa-check-circle") {
     
       trashSpan.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
-      
+      // let iCompleted = document.createElement("i");
+      iCompleted.setAttribute("class", "far fa-check-circle");
     //  liCompleted.appendChild(trashSpan);
       completedList.appendChild(liCompleted);
     //  completedList.innerHTML = li.textContent;
+    // liCompleted.innerHTML = li.textContent;
     liCompleted.innerHTML = li.innerText;
+    checkCircleCompleted.appendChild(iCompleted);
+    liCompleted.prepend(checkCircleCompleted);
      liCompleted.appendChild(trashSpan);
       // liCompleted.innerHTML = li.innerHTML;
       li.innerHTML = "";
