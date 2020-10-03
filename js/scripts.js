@@ -82,11 +82,44 @@ let iCompleted = document.createElement("i");
   //   li.remove();
   // });
 
+
+//   checkCircle.addEventListener('click', function() {
+//     p.classList.toggle("slash");
+//    //  let x = p.getAttribute("contenteditable"); 
+ 
+ 
+ 
+//     if(i.className == "far fa-circle") {
+//      i.className = "far fa-check-circle";
+//       //content cannot be edited
+//      p.setAttribute("contenteditable", "false");
+//     } else {
+//      i.className = "far fa-circle";
+//      //content can be edited
+//      p.setAttribute("contenteditable", "true");
+ 
+//     }
+ 
+//    //  transfer list over to completed when circle is checked
+//     if(i.className == "far fa-check-circle") {
+//        let completedList = document.getElementById("completed-list");
+//          // create list item
+//        let liCompleted = document.createElement("li");
+ 
+//        completedList.appendChild(liCompleted);
+//      //  completedList.innerHTML = li.textContent;
+//        liCompleted.innerHTML = li.innerHTML;
+//        li.innerHTML = "";
+//     }
+    
+//  });
+ 
+
   checkCircle.addEventListener('click', function() {
    p.classList.toggle("slash");
   //  let x = p.getAttribute("contenteditable"); 
 
-
+//     p.classList.toggle("slash");
 
    if(i.className == "far fa-circle") {
     i.className = "far fa-check-circle";
@@ -99,7 +132,6 @@ let iCompleted = document.createElement("i");
 
    }
 
-
   //  transfer list over to completed when circle is checked
    if(i.className == "far fa-check-circle") {
     
@@ -110,25 +142,24 @@ let iCompleted = document.createElement("i");
       completedList.appendChild(liCompleted);
     //  completedList.innerHTML = li.textContent;
     // liCompleted.innerHTML = li.textContent;
-    liCompleted.innerHTML = li.innerText;
+    p.innerHTML = li.innerText;
     checkCircleCompleted.appendChild(iCompleted);
     liCompleted.prepend(checkCircleCompleted);
+    liCompleted.appendChild(p);
      liCompleted.appendChild(trashSpan);
       // liCompleted.innerHTML = li.innerHTML;
       li.innerHTML = "";
+      // li.remove();
         //  console.log(li);
    } 
-   
-//    else {
- 
-//     li.innerHTML = liCompleted.innerHTML;
-//     liCompleted.innerHTML = "";
-//  }
 
 
 });
 
-
+  checkCircleCompleted.addEventListener('click', function() {
+    li.innerHTML = liCompleted.innerHTML;
+        liCompleted.innerHTML = "";
+  });
 
   // Delete content
   deleteTrash.addEventListener('click', function() {
