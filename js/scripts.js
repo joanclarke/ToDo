@@ -36,6 +36,7 @@ function pushData() {
 
     //create list 
 function createList(item) {
+
     // create list item
     let li = document.createElement("li");
        //append list item to parent element (ul)
@@ -62,8 +63,8 @@ function createList(item) {
     li.appendChild(deleteTrash);
     // li.setAttribute("id", "list-item");
     // p.setAttribute("display", "inherit");
-   
-
+   console.log(li);
+  
     // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#How_does_it_work
   //remove item when trash bin icon is clicked
   // document.querySelector('#delete').addEventListener('click', function() {
@@ -75,6 +76,7 @@ function createList(item) {
   //  let x = p.getAttribute("contenteditable"); 
 
 
+
    if(i.className == "far fa-circle") {
     i.className = "far fa-check-circle";
      //content cannot be edited
@@ -83,13 +85,24 @@ function createList(item) {
     i.className = "far fa-circle";
     //content can be edited
     p.setAttribute("contenteditable", "true");
+
    }
 
-  
-  //  console.log(x);
-  // document.getElementById("demo").innerHTML = x;
+  //  transfer list over to completed when circle is checked
+   if(i.className == "far fa-check-circle") {
+      let completedList = document.getElementById("completed-list");
+        // create list item
+      let liCompleted = document.createElement("li");
+
+      completedList.appendChild(liCompleted);
+    //  completedList.innerHTML = li.textContent;
+      liCompleted.innerHTML = li.innerHTML;
+   }
 });
 
+
+
+  // Delete content
   deleteTrash.addEventListener('click', function() {
         li.remove();
     });
@@ -100,18 +113,11 @@ function clearInputField() {
   document.getElementById('inputText').value = "";
 }
 
-// if ($('#yourElement').css('position') == 'absolute')
-// {
-//    // true
-// }
-
-// $el.css({ top: "10px" }) => el.style.top = "10px"
-
-// function deleteData() {
-//   li.remove();
-// }
-
 
 // https://stackoverflow.com/questions/33004177/add-user-input-to-list-on-button-click-in-javascript
 
 // https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript
+
+
+// App design link:
+// https://www.uplabs.com/posts/todo-list-mobile-app

@@ -11,7 +11,7 @@ div#list-container {
   /* background-color: yellow; */
 }
 
-ul#list li {
+li {
   list-style: none;
 }
 
