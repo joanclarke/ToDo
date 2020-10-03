@@ -97,6 +97,7 @@ function createList(item) {
       completedList.appendChild(liCompleted);
     //  completedList.innerHTML = li.textContent;
       liCompleted.innerHTML = li.innerHTML;
+      li.innerHTML = "";
    }
 });
 
