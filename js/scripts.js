@@ -37,6 +37,14 @@ function pushData() {
     //create list 
 function createList(item) {
 
+
+
+  let completedList = document.getElementById("completed-list");
+  // create list item
+let liCompleted = document.createElement("li");
+
+let trashSpan = document.createElement("span");
+
     // create list item
     let li = document.createElement("li");
        //append list item to parent element (ul)
@@ -63,7 +71,7 @@ function createList(item) {
     li.appendChild(deleteTrash);
     // li.setAttribute("id", "list-item");
     // p.setAttribute("display", "inherit");
-   console.log(li);
+  //  console.log(li);
   
     // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#How_does_it_work
   //remove item when trash bin icon is clicked
@@ -88,17 +96,29 @@ function createList(item) {
 
    }
 
+
   //  transfer list over to completed when circle is checked
    if(i.className == "far fa-check-circle") {
-      let completedList = document.getElementById("completed-list");
-        // create list item
-      let liCompleted = document.createElement("li");
-
+    
+      trashSpan.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
+      
+    //  liCompleted.appendChild(trashSpan);
       completedList.appendChild(liCompleted);
     //  completedList.innerHTML = li.textContent;
-      liCompleted.innerHTML = li.innerHTML;
+    liCompleted.innerHTML = li.innerText;
+     liCompleted.appendChild(trashSpan);
+      // liCompleted.innerHTML = li.innerHTML;
       li.innerHTML = "";
-   }
+        //  console.log(li);
+   } 
+   
+//    else {
+ 
+//     li.innerHTML = liCompleted.innerHTML;
+//     liCompleted.innerHTML = "";
+//  }
+
+
 });
 
 
@@ -107,6 +127,10 @@ function createList(item) {
   deleteTrash.addEventListener('click', function() {
         li.remove();
     });
+
+    trashSpan.addEventListener('click', function() {
+      liCompleted.remove();
+  });
 }
 
 //clear text from input field
