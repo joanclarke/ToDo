@@ -81,56 +81,21 @@ let iCompleted = document.createElement("i");
   // document.querySelector('#delete').addEventListener('click', function() {
   //   li.remove();
   // });
-
-
-//   checkCircle.addEventListener('click', function() {
-//     p.classList.toggle("slash");
-//    //  let x = p.getAttribute("contenteditable"); 
- 
- 
- 
-//     if(i.className == "far fa-circle") {
-//      i.className = "far fa-check-circle";
-//       //content cannot be edited
-//      p.setAttribute("contenteditable", "false");
-//     } else {
-//      i.className = "far fa-circle";
-//      //content can be edited
-//      p.setAttribute("contenteditable", "true");
- 
-//     }
- 
-//    //  transfer list over to completed when circle is checked
-//     if(i.className == "far fa-check-circle") {
-//        let completedList = document.getElementById("completed-list");
-//          // create list item
-//        let liCompleted = document.createElement("li");
- 
-//        completedList.appendChild(liCompleted);
-//      //  completedList.innerHTML = li.textContent;
-//        liCompleted.innerHTML = li.innerHTML;
-//        li.innerHTML = "";
-//     }
-    
-//  });
  
 
   checkCircle.addEventListener('click', function() {
    p.classList.toggle("slash");
-  //  let x = p.getAttribute("contenteditable"); 
+  editData(i, p);
+  //  if(i.className == "far fa-circle") {
+  //   i.className = "far fa-check-circle";
+  //    //content cannot be edited
+  //   p.setAttribute("contenteditable", "false");
+  //  } else {
+  //   i.className = "far fa-circle";
+  //   //content can be edited
+  //   p.setAttribute("contenteditable", "true");
 
-//     p.classList.toggle("slash");
-
-   if(i.className == "far fa-circle") {
-    i.className = "far fa-check-circle";
-     //content cannot be edited
-    p.setAttribute("contenteditable", "false");
-   } else {
-    i.className = "far fa-circle";
-    //content can be edited
-    p.setAttribute("contenteditable", "true");
-
-   }
+  //  }
 
   //  transfer list over to completed when circle is checked
    if(i.className == "far fa-check-circle") {
@@ -175,6 +140,20 @@ let iCompleted = document.createElement("i");
 function clearInputField() {
   document.getElementById('inputText').value = "";
 }
+ 
+// edit content only when circle does not have a tick inside of it
+function editData(i, p) {
+  if(i.className == "far fa-circle") {
+    i.className = "far fa-check-circle";
+     //content cannot be edited
+    p.setAttribute("contenteditable", "false");
+  } else {
+    i.className = "far fa-circle";
+    //content can be edited
+    p.setAttribute("contenteditable", "true");
+  }
+}
+
 
 
 // https://stackoverflow.com/questions/33004177/add-user-input-to-list-on-button-click-in-javascript
@@ -184,3 +163,7 @@ function clearInputField() {
 
 // App design link:
 // https://www.uplabs.com/posts/todo-list-mobile-app
+
+
+// MOVE CHILD
+// https://stackoverflow.com/questions/20910147/how-to-move-all-html-element-children-to-another-parent-using-javascript
