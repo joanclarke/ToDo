@@ -37,15 +37,21 @@ function pushData() {
     //create list 
 function createList(item) {
 
-
-
+  // create completed list 
+  let liCompleted = document.createElement("li");
   let completedList = document.getElementById("completed-list");
-  // create list item
-let liCompleted = document.createElement("li");
+  let trashSpan = document.createElement("span");
+  let checkCircleCompleted = document.createElement("span");
+  let iCompleted = document.createElement("i");
 
-let trashSpan = document.createElement("span");
-let checkCircleCompleted = document.createElement("span");
-let iCompleted = document.createElement("i");
+
+  // let completedList = document.getElementById("completed-list");
+  // create list item
+// let liCompleted = document.createElement("li");
+
+// let trashSpan = document.createElement("span");
+// let checkCircleCompleted = document.createElement("span");
+// let iCompleted = document.createElement("i");
 
 
     // create list item
@@ -96,27 +102,27 @@ let iCompleted = document.createElement("i");
   //   p.setAttribute("contenteditable", "true");
 
   //  }
-
-  //  transfer list over to completed when circle is checked
-   if(i.className == "far fa-check-circle") {
+  transferList(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted);
+  // //  transfer list over to completed when circle is checked
+  //  if(i.className == "far fa-check-circle") {
     
-      trashSpan.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
-      // let iCompleted = document.createElement("i");
-      iCompleted.setAttribute("class", "far fa-check-circle");
-    //  liCompleted.appendChild(trashSpan);
-      completedList.appendChild(liCompleted);
-    //  completedList.innerHTML = li.textContent;
-    // liCompleted.innerHTML = li.textContent;
-    p.innerHTML = li.innerText;
-    checkCircleCompleted.appendChild(iCompleted);
-    liCompleted.prepend(checkCircleCompleted);
-    liCompleted.appendChild(p);
-     liCompleted.appendChild(trashSpan);
-      // liCompleted.innerHTML = li.innerHTML;
-      li.innerHTML = "";
-      // li.remove();
-        //  console.log(li);
-   } 
+  //     trashSpan.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
+  //     // let iCompleted = document.createElement("i");
+  //     iCompleted.setAttribute("class", "far fa-check-circle");
+  //   //  liCompleted.appendChild(trashSpan);
+  //     completedList.appendChild(liCompleted);
+  //   //  completedList.innerHTML = li.textContent;
+  //   // liCompleted.innerHTML = li.textContent;
+  //   p.innerHTML = li.innerText;
+  //   checkCircleCompleted.appendChild(iCompleted);
+  //   liCompleted.prepend(checkCircleCompleted);
+  //   liCompleted.appendChild(p);
+  //    liCompleted.appendChild(trashSpan);
+  //     // liCompleted.innerHTML = li.innerHTML;
+  //     li.innerHTML = "";
+  //     // li.remove();
+  //       //  console.log(li);
+  //  } 
 
 
 });
@@ -152,6 +158,24 @@ function editData(i, p) {
     //content can be edited
     p.setAttribute("contenteditable", "true");
   }
+}
+  
+//  transfer list completed data/content over to completed-list container
+function transferList(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted) {
+  if(i.className == "far fa-check-circle") {
+    trashSpan.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
+    iCompleted.setAttribute("class", "far fa-check-circle");
+    completedList.appendChild(liCompleted);
+    //  completedList.innerHTML = li.textContent;
+    // liCompleted.innerHTML = li.textContent;
+    p.innerHTML = li.innerText;
+    checkCircleCompleted.appendChild(iCompleted);
+    liCompleted.prepend(checkCircleCompleted);
+    liCompleted.appendChild(p);
+    liCompleted.appendChild(trashSpan);
+    li.innerHTML = "";
+    // li.remove();
+  } 
 }
 
 
