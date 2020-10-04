@@ -54,19 +54,10 @@ function createList(userInput) {
 
   let i = document.createElement("i");
   i.setAttribute("class", "far fa-circle");
-  // checkCircle.innerHTML =  "<i class='far fa-circle'></i>";
-  // circle.innerHTML = "<i class='far fa-check-circle'></i>";
   let p = document.createElement("p");
   // make data/content editable
   p.setAttribute("contenteditable", "true");
-
-
- let checkCircle = document.createElement("span");
-  // console.log(circle);
-  // let circle;
-  // let  = createRadioButton(circle, p);
-
-
+  let checkCircle = document.createElement("span");
   let deleteTrash = document.createElement("span");
   deleteTrash.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
 
@@ -88,49 +79,30 @@ function createList(userInput) {
     transferData(li, liCompleted);
   });
 
-  // Delete content
-
   // deleteTrash.addEventListener('click', deleteData(li));
   deleteTrash.addEventListener('click', function() {
-  //   li.remove();
   deleteData(li);
   });
 
   trashSpan.addEventListener('click', function() {
-    // liCompleted.remove();
     deleteData(liCompleted);
   });
  
 }
 
-
+// Delete data/content
 function deleteData(x) {
-x.remove();
+  x.remove();
 // console.log(x);
 }
-
 
 function transferData(li, liCompleted) {
   li.innerHTML = liCompleted.innerHTML;
   liCompleted.innerHTML = "";
 }
 
-
-
-
-// function createRadioButton(circle, p, i) {
-
-//   circle.addEventListener('click', function() {
-//     p.classList.toggle("slash");
-//     editData(i, p);
-//     transferCompletedData(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted);
-//   });
-// }
-
 function toggleCheck(p) {
     p.classList.toggle("slash");
-//     editData(i, p);
-//     transferCompletedData(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted);
 }
 
 
@@ -152,10 +124,6 @@ function editData(i, p) {
   }
 }
 
-  //create new list item 
-  function createNewListItem() {
-
-  }
 //  transfer list completed data/content over to completed-list container
 function transferCompletedData(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted) {
   if(i.className == "far fa-check-circle") {
