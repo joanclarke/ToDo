@@ -4,7 +4,6 @@ let button = document.getElementById('button');
 let input = document.getElementById('inputText');
 let completedList = document.getElementById("completed-list");
 
-
 let arr = [];
 
 //get value for button and add event listener
@@ -12,9 +11,6 @@ button.addEventListener('click', function() {
   pushData();
   clearInputField();
 });
-// span.addEventListener('click', function() {
-//   this.li.classList.add('remove');
-// });
 // button.addEventListener('click', pushData);
 // button.addEventListener('click', clearInputField);
 
@@ -37,28 +33,22 @@ function pushData() {
 
 //create list 
 function createList(userInput) {
-  // create completed list 
-  let liCompleted = document.createElement("li");
-  let trashSpan = document.createElement("span");
-  let checkCircleCompleted = document.createElement("span");
-  let iCompleted = document.createElement("i");
-
-  // create list item
-  let li = document.createElement("li");
-  //append list item to parent element (ul)
-  document.getElementById('list').appendChild(li);
-  li.setAttribute("class", "list-item");
-    
-  // let checkCircle = document.createElement("span");
 
 
-  let i = document.createElement("i");
-  i.setAttribute("class", "far fa-circle");
+  let li = document.createElement("li");  // create list item
+  document.getElementById('list').appendChild(li);  //append list item to parent element (ul)
+  li.setAttribute("class", "list-item"); //set class attribute
+
+
   let p = document.createElement("p");
   // make data/content editable
   p.setAttribute("contenteditable", "true");
+
+  let i = document.createElement("i");
+  i.setAttribute("class", "far fa-circle");
+
   let checkCircle = document.createElement("span");
-  let deleteTrash = document.createElement("span");
+  let deleteTrash = document.createElement("span");//create span for holding trash bin icon
   deleteTrash.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
 
   p.innerHTML = userInput;  //add user input in paragraph (p) element
@@ -70,23 +60,19 @@ function createList(userInput) {
   li.appendChild(deleteTrash);
 
   checkCircle.addEventListener('click', function() {
-    toggleCheck(p)
+    toggleCheck(p); 
     editData(i, p);
-    transferCompletedData(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted);
+    transferCompletedData(i, p, li, deleteTrash);
   })
 
-  checkCircleCompleted.addEventListener('click', () => {
-    transferData(li, liCompleted);
-  });
+
 
   // deleteTrash.addEventListener('click', deleteData(li));
   deleteTrash.addEventListener('click', function() {
   deleteData(li);
   });
 
-  trashSpan.addEventListener('click', function() {
-    deleteData(liCompleted);
-  });
+ 
  
 }
 
@@ -96,15 +82,31 @@ function deleteData(x) {
 // console.log(x);
 }
 
-function transferData(li, liCompleted) {
+//transfer data from completed container to list container
+// function transferData(li, liCompleted) {
+function ReverseTransferData(li, liCompleted) {
   li.innerHTML = liCompleted.innerHTML;
   liCompleted.innerHTML = "";
+  // console.log(li);
+  // console.log(liCompleted);
 }
 
+//toggle line-through class
 function toggleCheck(p) {
-    p.classList.toggle("slash");
+   // p.classList.add("strike-out");
+  p.classList.toggle("strike-out");
+  
+  // p.setAttribute("contenteditable", "true");
+  // if(p.hasAttribute("class") == false) {
+  //   // p.setAttribute("class", "strike-out");
+  //   // p.classList.add("strike-out");
+  //   // let x = p.getAttribute("class")
+  //   // console.log(x);
+  //   console.log("NO CLASS")
+  // } else {
+  //   console.log("I HAVE CLASS")
+  // }
 }
-
 
 //clear text from input field
 function clearInputField() {
@@ -121,13 +123,40 @@ function editData(i, p) {
     i.className = "far fa-circle";
     //content can be edited
     p.setAttribute("contenteditable", "true");
+      // p.setAttribute("class", "strike-out");
   }
 }
 
 //  transfer list completed data/content over to completed-list container
-function transferCompletedData(i, p, li, trashSpan, iCompleted, completedList, checkCircleCompleted, liCompleted) {
+function transferCompletedData(i, p, li, deleteTrash) {
+  let liCompleted = document.createElement("li");
+  let checkCircleCompleted = document.createElement("span");
+  
+  let deleteTrash4CompletedList = document.createElement("span");
+  let iCompleted = document.createElement("i");
   if(i.className == "far fa-check-circle") {
-    trashSpan.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
+    // deleteTrash4CompletedList.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
+    deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
+    // console.log(deleteTrash4CompletedList.innerHTML);
+   
+
+    iCompleted.addEventListener('click', function() {
+      // p.classList.remove("strike-out");
+      // p.classList.toggle("strike-out");
+      toggleCheck(p);
+      // iCompleted.innerHTML = i.innerHTML;
+      iCompleted.setAttribute("class", "far fa-circle");
+    });
+
+    deleteTrash4CompletedList.addEventListener('click', function() {
+      deleteData(liCompleted);
+    });
+
+
+    checkCircleCompleted.addEventListener('click', () => {
+      ReverseTransferData(li, liCompleted);
+    });
+
     iCompleted.setAttribute("class", "far fa-check-circle");
     completedList.appendChild(liCompleted);
     //  completedList.innerHTML = li.textContent;
@@ -136,7 +165,7 @@ function transferCompletedData(i, p, li, trashSpan, iCompleted, completedList, c
     checkCircleCompleted.appendChild(iCompleted);
     liCompleted.prepend(checkCircleCompleted);
     liCompleted.appendChild(p);
-    liCompleted.appendChild(trashSpan);
+    liCompleted.appendChild(deleteTrash4CompletedList);
     li.innerHTML = "";
     // li.remove();
   } 
