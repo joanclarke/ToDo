@@ -10,6 +10,7 @@ let arr = [];
 button.addEventListener('click', function() {
   pushData();
   clearInputField();
+  // button.classList.add("noInputBorder")
 });
 // button.addEventListener('click', pushData);
 // button.addEventListener('click', clearInputField);
@@ -65,15 +66,10 @@ function createList(userInput) {
     transferCompletedData(i, p, li, deleteTrash);
   })
 
-
-
   // deleteTrash.addEventListener('click', deleteData(li));
   deleteTrash.addEventListener('click', function() {
   deleteData(li);
   });
-
- 
- 
 }
 
 // Delete data/content
@@ -131,15 +127,13 @@ function editData(i, p) {
 function transferCompletedData(i, p, li, deleteTrash) {
   let liCompleted = document.createElement("li");
   let checkCircleCompleted = document.createElement("span");
-  
   let deleteTrash4CompletedList = document.createElement("span");
   let iCompleted = document.createElement("i");
+
   if(i.className == "far fa-check-circle") {
     // deleteTrash4CompletedList.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
     // console.log(deleteTrash4CompletedList.innerHTML);
-   
-
     iCompleted.addEventListener('click', function() {
       // p.classList.remove("strike-out");
       // p.classList.toggle("strike-out");
@@ -152,10 +146,13 @@ function transferCompletedData(i, p, li, deleteTrash) {
       deleteData(liCompleted);
     });
 
-
-    checkCircleCompleted.addEventListener('click', () => {
+    checkCircleCompleted.addEventListener('click', function() {
       ReverseTransferData(li, liCompleted);
     });
+
+    // checkCircleCompleted.addEventListener('click', () => {
+    //   ReverseTransferData(li, liCompleted);
+    // });
 
     iCompleted.setAttribute("class", "far fa-check-circle");
     completedList.appendChild(liCompleted);

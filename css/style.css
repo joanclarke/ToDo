@@ -2,25 +2,146 @@
   display: none;
 } */
 
+
+/* *, *::before, *::after {
+  box-sizing: border-box;
+  font-family:  sans-serif;
+} */
+
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #d1cccc;
 }
 
-div#list-container {
-  /* background-color: yellow; */
+#container {
+  /* background-color: #001B3A; */
+  /* background-color: #3c4363; */
+  /* background-color: #1D2951; */
+  /* background-color: #404471; */
+  /* background-color: #282E58; */
+  background-color: #232850;
+}
+
+#input-container {
+width: 284px;
+display: flex; 
+justify-content: space-between;
+/* border: 1px solid teal; */
+background-color: rgba(24, 27, 54, 0.5);
+}
+
+/* 
+.container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+
+
+input[type="text"] {
+  /* width: 200px;
+  height: 20px;
+  padding-right: 50px; */
+  margin: 10px;
+  border-style: none;
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #d1cccc;
+}
+
+
+/* input {
+  width: 450px;
+  padding: 0px 15px;
+} */
+
+/* Change Autocomplete styles in Chrome*/
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid green;
+  -webkit-text-fill-color: green;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+} */
+
+
+/* input#inputText:focus {
+  outline-width: 0;
+} */
+
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+/* input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+} */
+
+::-webkit-input-placeholder { /* WebKit browsers */
+ 
+   opacity: 0.5 !important;
+   font-weight: 400;
+   font-size: 1rem;
+   color: #d1cccc;
+}
+
+button[type="submit"] {
+  border-style: none;
+  background-color: transparent;
+    /* float: right; */
+} 
+
+.fa-plus-circle {
+  color: teal;
+  font-size: 1.5rem;
+}
+/*
+input[type="submit"] {
+  margin-left: -50px;
+  height: 25px;
+  width: 50px;
+  background: blue;
+  color: white;
+  border: 0;
+  -webkit-appearance: none;
+} */
+
+p.title {
+  font-weight: 400;
 }
 
 li {
   list-style: none;
 }
 
-ul#list li#list-item span i.fa-trash{
+ul#list li#list-item span i.fa-trash {
   color: red;
 /* font-size: 40px; */
 }
 
-p {
+li p {
   display: inline-block;
   margin: 0;
   padding: 0 5px;
