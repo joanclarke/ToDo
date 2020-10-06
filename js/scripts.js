@@ -21,11 +21,16 @@ console.log(alert);
 
 // button.addEventListener('click', pushData);
 // button.addEventListener('click', clearInputField);
-
+// When the user clicks on <div>, open the popup
 function addItemAlert() {
-  alert("You need to add an item");
-  // alert.classList.add("alert-style")
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
 }
+
+// function addItemAlert() {
+//   alert("You need to add an item");
+//   // alert.classList.add("alert-style")
+// }
 
 //display user input on screen
 function pushData() {
