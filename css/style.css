@@ -9,6 +9,13 @@
 } */
 
 body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -113,9 +120,20 @@ button[type="submit"] {
     /* float: right; */
 } 
 
+.alert-style {
+  width: 100vw;
+  height: 100vh;
+  background-color: teal;
+  color: beige;
+}
+
 .fa-plus-circle {
-  color: teal;
+  color: #008080; /* teal */
   font-size: 1.5rem;
+}
+
+.fa-plus-circle:hover {
+  color: #009999;
 }
 /*
 input[type="submit"] {

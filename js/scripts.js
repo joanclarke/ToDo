@@ -8,12 +8,24 @@ let arr = [];
 
 //get value for button and add event listener
 button.addEventListener('click', function() {
-  pushData();
-  clearInputField();
+  if(input.value == "") {
+    addItemAlert();
+  } else {
+    pushData();
+    clearInputField();
   // button.classList.add("noInputBorder")
+  }
 });
+
+console.log(alert);
+
 // button.addEventListener('click', pushData);
 // button.addEventListener('click', clearInputField);
+
+function addItemAlert() {
+  alert("You need to add an item");
+  // alert.classList.add("alert-style")
+}
 
 //display user input on screen
 function pushData() {
