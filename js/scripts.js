@@ -17,8 +17,6 @@ button.addEventListener('click', function() {
   }
 });
 
-console.log(alert);
-
 // button.addEventListener('click', pushData);
 // button.addEventListener('click', clearInputField);
 // When the user clicks on <div>, open the popup
@@ -26,11 +24,6 @@ function addItemAlert() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
-
-// function addItemAlert() {
-//   alert("You need to add an item");
-//   // alert.classList.add("alert-style")
-// }
 
 //display user input on screen
 function pushData() {
@@ -51,7 +44,6 @@ function pushData() {
 
 //create list 
 function createList(userInput) {
-
 
   let li = document.createElement("li");  // create list item
   document.getElementById('list').appendChild(li);  //append list item to parent element (ul)
