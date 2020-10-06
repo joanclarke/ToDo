@@ -53,9 +53,8 @@ function createList(userInput) {
   let p = document.createElement("p");
   // make data/content editable
   p.setAttribute("contenteditable", "true");
-
   let i = document.createElement("i");
-  i.setAttribute("class", "far fa-circle");
+  i.setAttribute("class", "fas fa-circle");
 
   let checkCircle = document.createElement("span");
   let deleteTrash = document.createElement("span");//create span for holding trash bin icon
@@ -120,12 +119,12 @@ function clearInputField() {
  
 // user can edit content only when circle does not have a tick inside of it
 function editData(i, p) {
-  if(i.className == "far fa-circle") {
-    i.className = "far fa-check-circle";
+  if(i.className == "fas fa-circle") {
+    i.className = "fas fa-check-circle";
      //content cannot be edited
     p.setAttribute("contenteditable", "false");
   } else {
-    i.className = "far fa-circle";
+    i.className = "fas fa-circle";
     //content can be edited
     p.setAttribute("contenteditable", "true");
       // p.setAttribute("class", "strike-out");
@@ -139,7 +138,7 @@ function transferCompletedData(i, p, li, deleteTrash) {
   let deleteTrash4CompletedList = document.createElement("span");
   let iCompleted = document.createElement("i");
 
-  if(i.className == "far fa-check-circle") {
+  if(i.className == "fas fa-check-circle") {
     // deleteTrash4CompletedList.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
     // console.log(deleteTrash4CompletedList.innerHTML);
@@ -148,7 +147,7 @@ function transferCompletedData(i, p, li, deleteTrash) {
       // p.classList.toggle("strike-out");
       toggleCheck(p);
       // iCompleted.innerHTML = i.innerHTML;
-      iCompleted.setAttribute("class", "far fa-circle");
+      iCompleted.setAttribute("class", "fas fa-circle");
     });
 
     deleteTrash4CompletedList.addEventListener('click', function() {
@@ -163,7 +162,7 @@ function transferCompletedData(i, p, li, deleteTrash) {
     //   ReverseTransferData(li, liCompleted);
     // });
 
-    iCompleted.setAttribute("class", "far fa-check-circle");
+    iCompleted.setAttribute("class", "fas fa-check-circle");
     completedList.appendChild(liCompleted);
     //  completedList.innerHTML = li.textContent;
     // liCompleted.innerHTML = li.textContent;
