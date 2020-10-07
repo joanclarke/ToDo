@@ -51,7 +51,7 @@ function createList(userInput) {
 
   let p = document.createElement("p");
   // make data/content editable
-  // p.setAttribute("id", "paragraph");
+  p.setAttribute("class", "scroll");
   p.setAttribute("contenteditable", "true");
   let i = document.createElement("i");
   i.setAttribute("class", "fas fa-circle");
