@@ -69,7 +69,8 @@ function createList(userInput) {
   li.appendChild(deleteTrash);
 
   checkCircle.addEventListener('click', function() {
-    toggleCheck(p); 
+    // toggleCheck(p); 
+    p.classList.add("strike-out");
     editData(i, p);
     transferCompletedData(i, p, li, deleteTrash);
   })
@@ -87,30 +88,27 @@ function deleteData(x) {
 }
 
 //transfer data from completed container to list container
-// function transferData(li, liCompleted) {
-function ReverseTransferData(li, liCompleted) {
-  li.innerHTML = liCompleted.innerHTML;
-  liCompleted.innerHTML = "";
-  // console.log(li);
-  // console.log(liCompleted);
-}
+// function ReverseTransferData(li, liCompleted) {
+//   li.innerHTML = liCompleted.innerHTML;
+//   liCompleted.innerHTML = "";
+// }
 
 //toggle line-through class
-function toggleCheck(p) {
-   // p.classList.add("strike-out");
-  p.classList.toggle("strike-out");
+// function toggleCheck(p) {
+//    // p.classList.add("strike-out");
+//   p.classList.toggle("strike-out");
   
-  // p.setAttribute("contenteditable", "true");
-  // if(p.hasAttribute("class") == false) {
-  //   // p.setAttribute("class", "strike-out");
-  //   // p.classList.add("strike-out");
-  //   // let x = p.getAttribute("class")
-  //   // console.log(x);
-  //   console.log("NO CLASS")
-  // } else {
-  //   console.log("I HAVE CLASS")
-  // }
-}
+//   // p.setAttribute("contenteditable", "true");
+//   // if(p.hasAttribute("class") == false) {
+//   //   // p.setAttribute("class", "strike-out");
+//   //   // p.classList.add("strike-out");
+//   //   // let x = p.getAttribute("class")
+//   //   // console.log(x);
+//   //   console.log("NO CLASS")
+//   // } else {
+//   //   console.log("I HAVE CLASS")
+//   // }
+// }
 
 //clear text from input field
 function clearInputField() {
@@ -139,24 +137,21 @@ function transferCompletedData(i, p, li, deleteTrash) {
   let iCompleted = document.createElement("i");
 
   if(i.className == "fas fa-check-circle") {
-    // deleteTrash4CompletedList.innerHTML = "<i id='complete-trash' class='complete-trash fa fa-trash'></i>";
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
-    // console.log(deleteTrash4CompletedList.innerHTML);
-    iCompleted.addEventListener('click', function() {
-      // p.classList.remove("strike-out");
-      // p.classList.toggle("strike-out");
-      toggleCheck(p);
-      // iCompleted.innerHTML = i.innerHTML;
-      iCompleted.setAttribute("class", "fas fa-circle");
-    });
+    // iCompleted.addEventListener('click', function() {
+    //   p.classList.remove("strike-out");
+    //   // p.classList.toggle("strike-out");
+    //   // toggleCheck(p);
+    //   iCompleted.setAttribute("class", "fas fa-circle");
+    // });
 
     deleteTrash4CompletedList.addEventListener('click', function() {
       deleteData(liCompleted);
     });
 
-    checkCircleCompleted.addEventListener('click', function() {
-      ReverseTransferData(li, liCompleted);
-    });
+    // checkCircleCompleted.addEventListener('click', function() {
+    //   ReverseTransferData(li, liCompleted);
+    // });
 
     // checkCircleCompleted.addEventListener('click', () => {
     //   ReverseTransferData(li, liCompleted);
