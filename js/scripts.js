@@ -52,6 +52,7 @@ function createList(userInput) {
 
   let p = document.createElement("p");
   // make data/content editable
+  p.setAttribute("id", "paragraph");
   p.setAttribute("contenteditable", "true");
   let i = document.createElement("i");
   i.setAttribute("class", "fas fa-circle");
@@ -69,7 +70,6 @@ function createList(userInput) {
   li.appendChild(deleteTrash);
 
   checkCircle.addEventListener('click', function() {
-    // toggleCheck(p); 
     p.classList.add("strike-out");
     editData(i, p);
     transferCompletedData(i, p, li, deleteTrash);
@@ -79,36 +79,13 @@ function createList(userInput) {
   deleteTrash.addEventListener('click', function() {
   deleteData(li);
   });
+
 }
 
 // Delete data/content
 function deleteData(x) {
   x.remove();
-// console.log(x);
 }
-
-//transfer data from completed container to list container
-// function ReverseTransferData(li, liCompleted) {
-//   li.innerHTML = liCompleted.innerHTML;
-//   liCompleted.innerHTML = "";
-// }
-
-//toggle line-through class
-// function toggleCheck(p) {
-//    // p.classList.add("strike-out");
-//   p.classList.toggle("strike-out");
-  
-//   // p.setAttribute("contenteditable", "true");
-//   // if(p.hasAttribute("class") == false) {
-//   //   // p.setAttribute("class", "strike-out");
-//   //   // p.classList.add("strike-out");
-//   //   // let x = p.getAttribute("class")
-//   //   // console.log(x);
-//   //   console.log("NO CLASS")
-//   // } else {
-//   //   console.log("I HAVE CLASS")
-//   // }
-// }
 
 //clear text from input field
 function clearInputField() {
@@ -129,6 +106,17 @@ function editData(i, p) {
   }
 }
 
+// function ReverseTransferData(li, liCompleted) {
+//   let NewLi = document.createElement("li"); 
+//   li.innerHTML = liCompleted.innerHTML;
+// let liInnerHTML = li.innerHTML;
+//   // NewLi.appendChild(liInnerHTML[0]);
+//   console.log(liInnerHTML);
+//   // console.log(liInnerHTML);
+//   liCompleted.innerHTML = "";
+
+// }
+
 //  transfer list completed data/content over to completed-list container
 function transferCompletedData(i, p, li, deleteTrash) {
   let liCompleted = document.createElement("li");
@@ -138,23 +126,13 @@ function transferCompletedData(i, p, li, deleteTrash) {
 
   if(i.className == "fas fa-check-circle") {
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
-    // iCompleted.addEventListener('click', function() {
-    //   p.classList.remove("strike-out");
-    //   // p.classList.toggle("strike-out");
-    //   // toggleCheck(p);
-    //   iCompleted.setAttribute("class", "fas fa-circle");
-    // });
-
     deleteTrash4CompletedList.addEventListener('click', function() {
       deleteData(liCompleted);
     });
 
     // checkCircleCompleted.addEventListener('click', function() {
     //   ReverseTransferData(li, liCompleted);
-    // });
-
-    // checkCircleCompleted.addEventListener('click', () => {
-    //   ReverseTransferData(li, liCompleted);
+    //   console.log(ReverseTransferData(li, liCompleted));
     // });
 
     iCompleted.setAttribute("class", "fas fa-check-circle");
@@ -166,8 +144,8 @@ function transferCompletedData(i, p, li, deleteTrash) {
     liCompleted.prepend(checkCircleCompleted);
     liCompleted.appendChild(p);
     liCompleted.appendChild(deleteTrash4CompletedList);
-    li.innerHTML = "";
-    // li.remove();
+    // li.innerHTML = "";
+    li.remove();
   } 
 }
 
