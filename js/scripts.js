@@ -1,8 +1,6 @@
-
-
 let button = document.getElementById('button');
 let input = document.getElementById('inputText');
-let completedList = document.getElementById("completed-list");
+// let completedList = document.getElementById("completed-list");
 
 let arr = []; 
 
@@ -30,7 +28,7 @@ function pushData() {
   let inputText = input.value;
   // append data to the array
   arr.push(inputText);
-  var text = "";
+  let text = "";
                 
   for(i = 0; i < arr.length; i++) {
     text = arr[i];
@@ -45,7 +43,8 @@ function pushData() {
 function createList(userInput) {
 
   let li = document.createElement("li");  // create list item
-  document.getElementById('list').appendChild(li);  //append list item to parent element (ul)
+  // document.getElementById('list').appendChild(li);  //append list item to parent element (ul)
+  document.getElementById('list').prepend(li);  //add list item to the top of the parent element (ul)
   li.setAttribute("class", "list-item"); //set class attribute
 
 
@@ -160,7 +159,8 @@ function transferCompletedData(i, p, li, deleteTrash) {
     // });
 
     iCompleted.setAttribute("class", "fas fa-check-circle");
-    completedList.appendChild(liCompleted);
+    document.getElementById("completed-list").prepend(liCompleted); 
+    // completedList.appendChild(liCompleted);
     p.innerHTML = li.innerText;
     checkCircleCompleted.appendChild(iCompleted);
     liCompleted.prepend(checkCircleCompleted);
