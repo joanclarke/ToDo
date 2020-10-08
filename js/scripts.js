@@ -58,6 +58,7 @@ function createList(userInput) {
 
   let checkCircle = document.createElement("span");
   let deleteTrash = document.createElement("span");//create span for holding trash bin icon
+  deleteTrash.setAttribute("class", "hide");
   deleteTrash.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
 
   p.innerHTML = userInput;  //add user input in paragraph (p) element
@@ -74,6 +75,18 @@ function createList(userInput) {
     transferCompletedData(i, p, li, deleteTrash);
   })
 
+
+  li.addEventListener("mouseover", function() {
+    deleteTrash.classList.remove("hide");
+    deleteTrash.classList.add("show");
+    // deleteTrash.classList.toggle("show");
+  });
+
+  li.addEventListener("mouseleave", function() {
+    deleteTrash.classList.remove("show");
+    deleteTrash.classList.add("hide");
+    // deleteTrash.classList.toggle("show");
+  });
   // deleteTrash.addEventListener('click', deleteData(li));
   deleteTrash.addEventListener('click', function() {
   deleteData(li);

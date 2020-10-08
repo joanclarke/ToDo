@@ -1,6 +1,6 @@
-/* .hide {
+.hide {
   display: none;
-} */
+}
 
 
 /* *, *::before, *::after {
@@ -76,7 +76,7 @@ li {
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
+.popup .show, .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
@@ -156,17 +156,17 @@ button:focus {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-  color: #FF0000;
+  color: #d1cccc;
   opacity: 0.5 !important;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-  color: #FF0000;
+  color: #d1cccc;
   opacity: 0.5 !important;
 }
 
 :-ms-input-placeholder {  
- color: #FF0000;
+  color: #d1cccc;
 }
 
 button[type="submit"] {
@@ -178,13 +178,21 @@ button[type="submit"] {
 ul#list {
   padding: 0;
 }
+
 ul {
   padding: 0;
 }
+/* li:hover {
+  .fa-trash {
+    display: hide;
+  }
+} */
+
+
 
 li.list-item, #completed-list li {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 0 15px;
   width: 284px;
@@ -204,11 +212,14 @@ li.list-item, #completed-list li {
 #completed-list li {
   background-color: #373760;
 }
+
 li p.scroll {
   display: inline-block;
-  margin: 0;
+  margin: 0 10px 0 10px;
+  /* margin-left: 15px; */
   padding: 0 5px;
-  width: 200px;
+  width: 220px;
+  max-width: 220px;
   overflow-x: scroll; /* Add the ability to scroll  horizontally */
   /* overflow-y: hidden */
   /* text-overflow: ellipsis; */
@@ -230,14 +241,41 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .fa-trash {
+  color: rgb(182, 59, 59);
+  font-size: 1.2rem;
+}
+
+.fa-trash:hover {
   color: red;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 /* font-size: 40px; */
+}
+
+li.list-item:hover ~ span i.fa-trash {
+  color: #ccc
 }
 
 .strike-out {
 text-decoration: line-through;
 }
+
+/* To use the .strike-out style below, remove width in the li p.scroll selector, it can be replaced by max-width */
+/* 
+.strike-out {
+  font-size: 1rem;
+  line-height: 1.2em;
+  position: relative;
+}
+
+.strike-out::after {
+  border-bottom: 0.125em solid green;
+  content: "";
+  left: 0;
+  margin-top: calc(0.125em / 2 * -1);
+  position: absolute;
+  right: 0;
+  top: 50%;
+} */
 
 .fa-circle {
   color: #ffffff;
