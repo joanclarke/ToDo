@@ -96,6 +96,7 @@ li {
 #input-container {
 width: 284px;
 max-width: 286px;
+padding: 0 15px;
 display: flex; 
 justify-content: space-between;
 /* border: 1px solid teal; */
@@ -116,8 +117,9 @@ border-radius: 1.5rem;
 
 
 input[type="text"] {
-  width: 215px;
-  max-width: 220px;
+  width: 240px;
+  max-width: 240px;
+  line-height: 1.2rem;
   /*height: 20px;
   padding-right: 50px; */
   margin: 10px;
@@ -148,7 +150,6 @@ button:focus {
 } */
 
 ::-webkit-input-placeholder { /* WebKit browsers */
- 
    opacity: 0.5 !important;
    font-weight: 400;
    font-size: 1rem;
@@ -289,7 +290,7 @@ font-size: 1.3rem;
 
 .fa-plus-circle {
   color: #008080; /* teal */
-  font-size: 1.3rem;
+  font-size: 1.7rem;
 }
 
 .fa-plus-circle:hover {
