@@ -1,7 +1,3 @@
-.hide {
-  display: none;
-}
-
 
 /* *, *::before, *::after {
   box-sizing: border-box;
@@ -28,14 +24,14 @@ li {
 }
 
 #container {
-  height: 70vh;
+  height: 80vh;
   background-color: #31315B;
   padding: 30px;
   /* overflow-y: scroll; */
 }
 
 #list-container-wrapper {
-  height: 55vh;
+  height: 70vh;
   overflow-y: scroll;
 }
 
@@ -92,6 +88,10 @@ li {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+.hide {
+  display: none;
 }
 
 #input-container {
