@@ -7,7 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200&display=swap" rel="stylesheet">
   </head>
 <body>
+
   <div id="container">
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <a href="#home" class="active">Logo</a>
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <a href="#list-container">To Do</a>
+        <a href="#completed">Completed</a>
+        <a href="#about">Light Mode</a>
+      </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fas fa-bars"></i>
+      </a>
+    </div>
 
     <div class="popup">
       <span class="popuptext" id="myPopup">Type todo item here </span>
