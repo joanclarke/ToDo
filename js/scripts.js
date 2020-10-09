@@ -1,6 +1,7 @@
 let button = document.getElementById('button');
 let input = document.getElementById('inputText');
-// let completedList = document.getElementById("completed-list");
+let ul = document.getElementById("completed-list");
+let count = document.getElementById("count");
 
 let arr = []; 
 
@@ -14,9 +15,6 @@ button.addEventListener('click', function() {
   }
 });
 
-// button.addEventListener('click', pushData);
-// button.addEventListener('click', clearInputField);
-// When the user clicks on button and input field is empty open/show the popup
 function addItemAlert() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
@@ -24,16 +22,14 @@ function addItemAlert() {
 
 //display user input on screen
 function pushData() {
-  // get input value
-  let inputText = input.value;
-  // append data to the array
-  arr.push(inputText);
+  let inputText = input.value;   // get input value
+  arr.push(inputText);   // append data to the array
   let text = "";
                 
   for(i = 0; i < arr.length; i++) {
     text = arr[i];
   }
-              
+
   if(text != "") {
     createList(text);
   }
@@ -41,16 +37,13 @@ function pushData() {
 
 //create list 
 function createList(userInput) {
-
   let li = document.createElement("li");  // create list item
-  // document.getElementById('list').appendChild(li);  //append list item to parent element (ul)
   document.getElementById('list').prepend(li);  //add list item to the top of the parent element (ul)
   li.setAttribute("class", "list-item"); //set class attribute
 
 
   let p = document.createElement("p");
-  // make data/content editable
-  p.setAttribute("class", "scroll");
+  p.setAttribute("class", "scroll");  // make data/content editable
   p.setAttribute("contenteditable", "true");
   let i = document.createElement("i");
   i.setAttribute("class", "fas fa-circle");
@@ -72,8 +65,8 @@ function createList(userInput) {
     p.classList.add("strike-out");
     editData(i, p);
     transferCompletedData(i, p, li, deleteTrash);
+    completedListCount();
   })
-
 
   li.addEventListener("mouseover", function() {
     deleteTrash.classList.remove("hide");
@@ -102,7 +95,6 @@ function deleteEmptyList(p, li) {
   if (p.innerHTML == "") {
     li.remove()
   } 
-  // console.log(p.innerHTML, li);
 }
 
 // Delete data/content
@@ -119,14 +111,17 @@ function clearInputField() {
 function editData(i, p) {
   if(i.className == "fas fa-circle") {
     i.className = "fas fa-check-circle";
-     //content cannot be edited
-    p.setAttribute("contenteditable", "false");
+    p.setAttribute("contenteditable", "false"); //makes content uneditable
   } else {
     i.className = "fas fa-circle";
-    //content can be edited
     p.setAttribute("contenteditable", "true");
-      // p.setAttribute("class", "strike-out");
   }
+}
+
+// shows total amount of completed items/to dos
+function completedListCount() {
+  // ul.childElementCount;
+  count.innerHTML = ul.childElementCount;//get total count of completed items/ to dos and show that number onscreen
 }
 
 // function ReverseTransferData(li, liCompleted) {
@@ -151,6 +146,8 @@ function transferCompletedData(i, p, li, deleteTrash) {
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
     deleteTrash4CompletedList.addEventListener('click', function() {
       deleteData(liCompleted);
+        // completedListCount();
+  console.log(completedListCount());
     });
 
     // checkCircleCompleted.addEventListener('click', function() {
@@ -160,15 +157,21 @@ function transferCompletedData(i, p, li, deleteTrash) {
 
     iCompleted.setAttribute("class", "fas fa-check-circle");
     document.getElementById("completed-list").prepend(liCompleted); 
-    // completedList.appendChild(liCompleted);
     p.innerHTML = li.innerText;
     checkCircleCompleted.appendChild(iCompleted);
     liCompleted.prepend(checkCircleCompleted);
     liCompleted.appendChild(p);
     liCompleted.appendChild(deleteTrash4CompletedList);
     li.remove();
-  } 
+  }
+  // let ul = document.getElementById("completed-list");
+  // // console.log(liCompleted.length);
+  // console.log(ul.childElementCount);
+  // for(let i = 0; i < ul.length; i++) {
+  //   console.log(ul[i]);
+  // }
 }
+
 
 
 // https://stackoverflow.com/questions/33004177/add-user-input-to-list-on-button-click-in-javascript
