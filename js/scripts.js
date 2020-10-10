@@ -2,6 +2,8 @@ let button = document.getElementById('button');
 let input = document.getElementById('inputText');
 let ul = document.getElementById("completed-list");
 let count = document.getElementById("count");
+// const menuBtn = document.querySelector('.menu-btn');
+// let menuOpen = false;
 
 let arr = []; 
 
@@ -14,6 +16,21 @@ let arr = [];
 //     x.style.display = "block";
 //   }
 // }
+
+
+
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+
+menuBtn.addEventListener('click', () => {
+  if(!menuOpen) {
+    menuBtn.classList.add('open');
+    menuOpen = true;
+  } else {
+    menuBtn.classList.remove('open');
+    menuOpen = false;
+  }
+});
 
 //get value for button and add event listener
 button.addEventListener('click', function() {
