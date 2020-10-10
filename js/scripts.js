@@ -6,14 +6,14 @@ let count = document.getElementById("count");
 let arr = []; 
 
 /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+// function myFunction() {
+//   var x = document.getElementById("myLinks");
+//   if (x.style.display === "block") {
+//     x.style.display = "none";
+//   } else {
+//     x.style.display = "block";
+//   }
+// }
 
 //get value for button and add event listener
 button.addEventListener('click', function() {
