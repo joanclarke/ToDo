@@ -20,16 +20,23 @@ let arr = [];
 
 
 const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
 let menuOpen = false;
 
 menuBtn.addEventListener('click', () => {
   if(!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
+    // menu.classList.add('show');
+    // menu.classList.remove('hide');
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;
+    // menu.classList.add('hide');
+    // menu.classList.remove('show');
   }
+
+      menu.classList.toggle('hide');
 });
 
 //get value for button and add event listener
