@@ -29,14 +29,17 @@ menuBtn.addEventListener('click', () => {
     menuOpen = true;
     // menu.classList.add('show');
     // menu.classList.remove('hide');
+    menu.style.width = "100%";
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;
     // menu.classList.add('hide');
     // menu.classList.remove('show');
+    menu.style.width = "0%";
+    
   }
 
-      menu.classList.toggle('hide');
+      // menu.classList.toggle('hide');
 });
 
 //get value for button and add event listener

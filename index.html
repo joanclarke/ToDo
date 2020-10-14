@@ -12,9 +12,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200&display=swap" rel="stylesheet">
   </head>
 <body>
+<div id="container">
+  <div id="menu-container">
+    <div class="menu-btn">
+      <div class="menu-btn_burger">
+      </div>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="#container">Home</a></li>
+        <li><a href="#list-container">To Do</a></li>
+        <li><a href="#completed">Completed</a></li>
+        <li><a href="#">Background</a></li>
+      </ul>
+    </div>
+  </div>
 
-
-  <div id="container">
+  <div id="todo-container">
     <!-- Top Navigation Menu -->
     <!-- <div class="topnav">
       <a href="#home" class="active">Logo</a>
@@ -31,18 +45,7 @@
       </a>
     </div> -->
 
-    <div class="menu-btn">
-      <div class="menu-btn_burger">
-      </div>
-    </div>
-    <div class="menu hide">
-      <ul>
-        <li><a href="#container">Home</a></li>
-        <li><a href="#list-container">To Do</a></li>
-        <li><a href="#completed">Completed</a></li>
-        <li><a href="#">Background</a></li>
-      </ul>
-    </div>
+
 
     <div class="popup">
       <span class="popuptext" id="myPopup">Type todo item here </span>
@@ -68,7 +71,7 @@
     </div>
     </div>
   </div>
-  
+</div>
 <!-- <p contenteditable="true">Edit this text</p> -->
 <script src="js/scripts.js" async defer></script>
 </body>
