@@ -427,9 +427,15 @@ hr#line {
   background-color: #35355E;
 }
 
+/* ul#list, ul#completed-list {
+  height: 50vh;
+  overflow-y: scroll;
+} */
+
 ul#list {
   padding: 0;
 }
+
 
 
 /* li:hover {
