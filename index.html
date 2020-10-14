@@ -12,66 +12,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200&display=swap" rel="stylesheet">
   </head>
 <body>
-<div id="container">
-  <div id="menu-container">
-    <div class="menu-btn">
-      <div class="menu-btn_burger">
+  <div id="container">
+    <!-- Navigation Menu -->
+    <div id="menu-container">
+      <div class="menu-btn">
+        <div class="menu-btn_burger">
+        </div>
+      </div>
+      <div class="menu">
+        <ul id="menu-items">
+          <li class="menu-item"><a href="#list-container">Home</a></li>
+          <li class="menu-item"><a href="#list-container">To Do</a></li>
+          <li class="menu-item"><a href="#completed">Completed</a></li>
+          <li class="menu-item"><a href="#">Background</a></li>
+        </ul>
       </div>
     </div>
-    <div class="menu">
-      <ul>
-        <li><a href="#list-container">Home</a></li>
-        <li><a href="#list-container">To Do</a></li>
-        <li><a href="#completed">Completed</a></li>
-        <li><a href="#">Background</a></li>
-      </ul>
+
+    <!-- Container for input, to do list and completed list -->
+    <div id="todo-container">
+      <div class="popup">
+        <span class="popuptext" id="myPopup">Type todo item here </span>
+      </div>
+      <!-- Input -->
+      <div id="input-container">
+        <input type="text" name="inputText" id="inputText" placeholder="Add Item"/>
+        <button id="button" type="submit" ><i class="fas fa-plus-circle"></i></button>  
+      </div>
+
+      <hr id="line">
+    
+      <div id="list-container-wrapper">
+        <div id="container-wrapper">
+          <!-- To Do List Container -->
+          <div id="list-container">
+            <p class="title">TO DO</p>
+            <ul id="list"></ul>
+          </div>
+          <!-- Completed List Container -->
+          <div id="completed">
+            <p class="title"> <a href="#completed" class="completed-link"><span id="count"></span> COMPLETED</a></p>
+            <ul id="completed-list"></ul>
+          </div>
+      </div>
     </div>
   </div>
-
-  <div id="todo-container">
-    <!-- Top Navigation Menu -->
-    <!-- <div class="topnav">
-      <a href="#home" class="active">Logo</a>
-        <!-- <a href="#home" class="active"><img src="./img/thingstodo.jpg" class="menu-img"></a> -->
-      <!-- Navigation links (hidden by default) -->
-      <!-- <div id="myLinks">
-        <a href="#list-container">To Do</a>
-        <a href="#completed">Completed</a>
-        <a href="#about">Light Mode</a>
-      </div> -->
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fas fa-bars"></i>
-      </a>
-    </div> -->
-
-
-
-    <div class="popup">
-      <span class="popuptext" id="myPopup">Type todo item here </span>
-    </div>
-
-    <div id="input-container">
-      <input type="text" name="inputText" id="inputText" placeholder="Add Item"/>
-      <button id="button" type="submit" ><i class="fas fa-plus-circle"></i></button>  
-    </div>
-    <hr id="line">
-  
-    <div id="list-container-wrapper">
-      <div id="container-wrapper">
-        <div id="list-container">
-          <p class="title">TO DO</p>
-          <ul id="list"></ul>
-        </div>
-      
-        <div id="completed">
-          <p class="title"> <a href="#completed" class="completed-link"><span id="count"></span> COMPLETED</a></p>
-          <ul id="completed-list"></ul>
-        </div>
-    </div>
-    </div>
-  </div>
-</div>
 <!-- <p contenteditable="true">Edit this text</p> -->
 <script src="js/scripts.js" async defer></script>
 </body>

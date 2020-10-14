@@ -7,23 +7,35 @@ let count = document.getElementById("count");
 
 let arr = []; 
 
-/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-// function myFunction() {
-//   var x = document.getElementById("myLinks");
-//   if (x.style.display === "block") {
-//     x.style.display = "none";
-//   } else {
-//     x.style.display = "block";
-//   }
-// }
-
 
 
 const menuBtn = document.querySelector('.menu-btn');
 const menu = document.querySelector('.menu');
 let menuOpen = false;
+let menuItems = document.getElementById('menu-items');
+let menuItem = document.querySelector('.menu-item');
+// console.log(menuItems, menuItem);
+
 
 menuBtn.addEventListener('click', () => {
+  toggleMenu();
+});
+
+menuItems.addEventListener('click', () => {
+  toggleMenu();
+});
+
+//get value for button and add event listener
+button.addEventListener('click', function() {
+  if(input.value == "") {
+    addItemAlert();
+  } else {
+    pushData();
+    clearInputField();
+  }
+});
+
+function toggleMenu() {
   if(!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
@@ -36,21 +48,8 @@ menuBtn.addEventListener('click', () => {
     // menu.classList.add('hide');
     // menu.classList.remove('show');
     menu.style.width = "0%";
-    
   }
-
-      // menu.classList.toggle('hide');
-});
-
-//get value for button and add event listener
-button.addEventListener('click', function() {
-  if(input.value == "") {
-    addItemAlert();
-  } else {
-    pushData();
-    clearInputField();
-  }
-});
+}
 
 function addItemAlert() {
   var popup = document.getElementById("myPopup");
