@@ -49,8 +49,18 @@ body {
 
 #list-container p.title, #completed p.title {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 0.8rem;
+  color: #ffffff;
+}
+
+#completed p.title a.completed-link {
+  color: #ffffff;
+}
+
+#completed p.title a.completed-link:hover {
+  /* color: #ffffff; */
+  font-weight: 700;
 }
 
 /* p.title {
@@ -259,7 +269,8 @@ a {
   /* margin-top: 190px; */
   left: 0;
   width: 0;
-  /* height: 65vh; */
+  /* height: 80vh; */
+  height: 89%;
   position: absolute;
   display: flex; 
   justify-content: center;
@@ -427,10 +438,14 @@ hr#line {
   background-color: #35355E;
 }
 
-/* ul#list, ul#completed-list {
-  height: 50vh;
+ul#list, ul#completed-list {
+  height: 52vh;
   overflow-y: scroll;
-} */
+}
+
+ul#completed-list {
+  height: 60vh;
+}
 
 ul#list {
   padding: 0;
