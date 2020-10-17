@@ -9,10 +9,17 @@ let count = document.getElementById("count");
 // let menuOpen = false;
 
 
-const container = document.querySelector('#container')
-const style = getComputedStyle(container);
+const container = document.querySelector('#container');
+container.style.backgroundColor = 'rgb(49, 49, 91)'; //set initial background color.
 
-const containerBackgroundColor = style.backgroundColor
+// const style = getComputedStyle(container);
+
+// const containerBackgroundColor = style.backgroundColor;
+
+// const container = document.querySelector('#container')
+// const backgroundColor = container.style.backgroundColor;
+// console.log("bg is " + backgroundColor);
+// const containerBackgroundColor = style.backgroundColor
 // console.log(containerBackgroundColor) // rgb(49, 49, 91)
 // console.log(style);
 
@@ -31,6 +38,7 @@ let background = document.getElementById('background');
 let hr = document.getElementById('line');
 let listItem = document.getElementsByClassName('list-item');
 const inputContainer = document.getElementById('input-container');
+const plusCircle = document.querySelector('.fa-plus-circle');
 // const inputContainer = document.getElementById('input-container');
 // let backg = container.style.background;
 // console.log(listItem);
@@ -58,7 +66,7 @@ background.addEventListener('click', () => {
   // li.style.background = "red";
   // toggleBgStyle();
   menuBtnBurger.classList.toggle('hidden-burger');
-  changeListStyle();
+  
   // for (let item of heading) {
   //   console.log(item);
   //   item.style.color = "red";
@@ -66,23 +74,26 @@ background.addEventListener('click', () => {
   // console.log(" whitebg = " + container.style.backgroundColor);
 
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
-    console.log('YES!');
+    console.log('YOU CALLED');
     container.style.backgroundColor = 'rgb(49, 49, 91)';
     // console.log("The background is " + container.style.backgroundColor);
     // hr.style.background = "red";
     hr.style.backgroundColor = "#35355E";
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
+    plusCircle.style.color = '#ffffff';
+    darkListStyle()
     // menuBtnBurger.classList.remove('hidden-burger');
   } else {
-    console.log('NO!');
+    // console.log('NO!');
     container.style.backgroundColor = 'rgb(255, 255, 255)';
     // hr.style.background = "blue";
     hr.style.background = "rgba(128, 128, 128, 0.5)";
     hr.style.height = "1px";
     inputContainer.style.backgroundColor = "#EBF1F5";
     input.style.color = "#808080";
-
+    plusCircle.style.color = 'green';
+    lightListStyle();
     // #EBF1F5
     // menuBtnBurger.classList.add('hidden-burger');
     // console.log("The background is " + container.style.backgroundColor);
@@ -132,15 +143,16 @@ button.addEventListener('click', function() {
   } else {
     pushData();
     clearInputField();
-
-    if( containerBackgroundColor == 'rgb(49, 49, 91)') {
-      // changeListStyle();
+    // element.classList.contains
+    if( container.style.backgroundColor == 'rgb(49, 49, 91)') {
       console.log("YEEESSSSS");
-      console.log(containerBackgroundColor);
+      console.log("The bg color is " + container.style.backgroundColor);
     } else {
+      lightListStyle() ;
       console.log("NOOOO");
-      console.log(containerBackgroundColor) ;
+     console.log("The bg color is " + container.style.backgroundColor);
     }
+    // console.log(containerBackgroundColor) ;
  
   }
 
@@ -148,16 +160,21 @@ button.addEventListener('click', function() {
   //   li.style.backgroundColor = "blue";
   // }
 });
+// console.log(containerBackgroundColor) ;
 
-function changeListStyle() {
+function darkListStyle() {
+  for (let item of listItem) {
+    console.log(item);
+    item.classList.add('dark-list-style');
+    item.classList.remove('light-list-style');
+  }
+}
+
+function lightListStyle() {
   for (let item of listItem) {
     console.log(item);
     item.classList.remove('dark-list-style');
     item.classList.add('light-list-style');
-  
-    // if(backg == "#ffffff"){
-    //   item.style.background = "red";
-    // }
   }
 }
 

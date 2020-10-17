@@ -36,7 +36,7 @@ body {
   width: 346px;
   max-width: 346px;
   /* overflow-y: scroll; */
-  background-color: rgb(49, 49, 91);
+  /* background-color: rgb(49, 49, 91); */
   border: solid 1px #131313;
   box-shadow: 3px 8px 8px #131313;
 }
