@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200&display=swap" rel="stylesheet">
   </head>
 <body>
-  <div id="container">
+  <div id="container" class="container-bg-dark ">
     <!-- Navigation Menu -->
     <div id="menu-container">
       <div class="menu-btn">
@@ -24,7 +25,7 @@
           <li class="menu-item"><a href="#list-container">Home</a></li>
           <li class="menu-item"><a href="#list-container">To Do</a></li>
           <li class="menu-item"><a href="#completed">Completed</a></li>
-          <li class="menu-item"><a href="#">Background</a></li>
+          <li id="background" class="menu-item"><a href="#">Background</a></li>
         </ul>
       </div>
     </div>
@@ -46,13 +47,17 @@
         <div id="container-wrapper">
           <!-- To Do List Container -->
           <div id="list-container">
-            <p class="title">TO DO</p>
+            <p class="title heading">TO DO</p>
             <ul id="list"></ul>
           </div>
           <!-- Completed List Container -->
           <div id="completed">
-            <p class="title"> <a href="#completed" class="completed-link"><span id="count"></span> COMPLETED</a></p>
+            <p class="title"> <a href="#completed" class="completed-link heading"><span id="count"></span> COMPLETED</a></p>
             <ul id="completed-list"></ul>
+          </div>
+          <!-- Redirection Link -->
+          <div id="return">
+            <p class="title"> <a href="#list-container" class="return-link heading"> Back to To Do</a></p>
           </div>
       </div>
     </div>

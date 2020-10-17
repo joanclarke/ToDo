@@ -1,3 +1,6 @@
+let body = document.querySelector('body');
+// let container = document.getElementById('container');
+// let li= document.querySelector('li');
 let button = document.getElementById('button');
 let input = document.getElementById('inputText');
 let ul = document.getElementById("completed-list");
@@ -5,17 +8,37 @@ let count = document.getElementById("count");
 // const menuBtn = document.querySelector('.menu-btn');
 // let menuOpen = false;
 
+
+const container = document.querySelector('#container')
+const style = getComputedStyle(container);
+
+const containerBackgroundColor = style.backgroundColor
+// console.log(containerBackgroundColor) // rgb(49, 49, 91)
+// console.log(style);
+
 let arr = []; 
 
 
 
 const menuBtn = document.querySelector('.menu-btn');
+let menuBtnBurger = document.querySelector('.menu-btn_burger');
 const menu = document.querySelector('.menu');
 let menuOpen = false;
 let menuItems = document.getElementById('menu-items');
 let menuItem = document.querySelector('.menu-item');
+let background = document.getElementById('background');
 // console.log(menuItems, menuItem);
+let hr = document.getElementById('line');
+let listItem = document.getElementsByClassName('list-item');
+const inputContainer = document.getElementById('input-container');
+// const inputContainer = document.getElementById('input-container');
+// let backg = container.style.background;
+// console.log(listItem);
 
+  // for (let item of listItem) {
+  //   console.log(item);
+  //   // item.style.color = "red";
+  // }
 
 menuBtn.addEventListener('click', () => {
   toggleMenu();
@@ -25,6 +48,83 @@ menuItems.addEventListener('click', () => {
   toggleMenu();
 });
 
+background.addEventListener('click', () => {
+  body.style.color = "#808080";
+  // menuBtnBurger.style.background = "gray";
+ 
+  // container.style.backgroundColor = "#ffffff";
+  // container.style.border = "solid 1px black";
+  // container.style.boxShadow = "3px 8px 8px #131313"
+  // li.style.background = "red";
+  // toggleBgStyle();
+  menuBtnBurger.classList.toggle('hidden-burger');
+  changeListStyle();
+  // for (let item of heading) {
+  //   console.log(item);
+  //   item.style.color = "red";
+  // }
+  // console.log(" whitebg = " + container.style.backgroundColor);
+
+  if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
+    console.log('YES!');
+    container.style.backgroundColor = 'rgb(49, 49, 91)';
+    // console.log("The background is " + container.style.backgroundColor);
+    // hr.style.background = "red";
+    hr.style.backgroundColor = "#35355E";
+    hr.style.height = "1.5px";
+    inputContainer.style.backgroundColor = "#282851";
+    // menuBtnBurger.classList.remove('hidden-burger');
+  } else {
+    console.log('NO!');
+    container.style.backgroundColor = 'rgb(255, 255, 255)';
+    // hr.style.background = "blue";
+    hr.style.background = "rgba(128, 128, 128, 0.5)";
+    hr.style.height = "1px";
+    inputContainer.style.backgroundColor = "#EBF1F5";
+    input.style.color = "#808080";
+
+    // #EBF1F5
+    // menuBtnBurger.classList.add('hidden-burger');
+    // console.log("The background is " + container.style.backgroundColor);
+  }
+
+});
+
+// if(container.style.backgroundColor == 'rgb(49, 49, 91)'){
+//   console.log('YES!');
+//   console.log("The background is " + container.style.backgroundColor);
+//   container.style.backgroundColor = 'rgb(255, 255, 255)';
+// } else {
+//   container.style.backgroundColor = 'rgb(49, 49, 91)';
+//   console.log('NO!');
+//   console.log("The background is " + container.style.backgroundColor);
+// }
+
+
+
+// console.log(container.style.backgroundColor);
+// console.log(container.classList);
+// console.log(container.classList.value );
+
+
+// if(container.classList.value == 'container-bg-dark') {
+//  console.log('YES!');
+//  console.log(container.style.backgroundColor);
+// } else {
+//   console.log('NO!');
+//   console.log(container.style.backgroundColor);
+// }
+
+
+
+// function toggleBgStyle() {
+//   // if() {
+//     console.log(" whitebg = " + container.style.backgroundColor);
+//   // }
+//   container.classList.remove('container-bg-dark');
+//   container.classList.add('container-bg-light');
+// }
+
 //get value for button and add event listener
 button.addEventListener('click', function() {
   if(input.value == "") {
@@ -32,8 +132,34 @@ button.addEventListener('click', function() {
   } else {
     pushData();
     clearInputField();
+
+    if( containerBackgroundColor == 'rgb(49, 49, 91)') {
+      // changeListStyle();
+      console.log("YEEESSSSS");
+      console.log(containerBackgroundColor);
+    } else {
+      console.log("NOOOO");
+      console.log(containerBackgroundColor) ;
+    }
+ 
   }
+
+  // if(container.style.background = "#ffffff") {
+  //   li.style.backgroundColor = "blue";
+  // }
 });
+
+function changeListStyle() {
+  for (let item of listItem) {
+    console.log(item);
+    item.classList.remove('dark-list-style');
+    item.classList.add('light-list-style');
+  
+    // if(backg == "#ffffff"){
+    //   item.style.background = "red";
+    // }
+  }
+}
 
 function toggleMenu() {
   if(!menuOpen) {
@@ -75,9 +201,9 @@ function pushData() {
 function createList(userInput) {
   let li = document.createElement("li");  // create list item
   document.getElementById('list').prepend(li);  //add list item to the top of the parent element (ul)
-  li.setAttribute("class", "list-item"); //set class attribute
-
-
+  // li.setAttribute("class", "list-item"); 
+  // li.setAttribute("class", "dark-list-style"); 
+  li.setAttribute("class","list-item dark-list-style"); //set class attributes
   let p = document.createElement("p");
   p.setAttribute("class", "scroll");  // make data/content editable
   p.setAttribute("contenteditable", "true");
@@ -174,6 +300,7 @@ function completedListCount() {
 //  transfer list completed data/content over to completed-list container
 function transferCompletedData(i, p, li, deleteTrash) {
   let liCompleted = document.createElement("li");
+  liCompleted.setAttribute("class", "dark-list-style");
   let checkCircleCompleted = document.createElement("span");
   let deleteTrash4CompletedList = document.createElement("span");
   let iCompleted = document.createElement("i");
