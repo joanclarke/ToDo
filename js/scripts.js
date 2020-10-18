@@ -37,6 +37,7 @@ let background = document.getElementById('background');
 // console.log(menuItems, menuItem);
 let hr = document.getElementById('line');
 let listItem = document.getElementsByClassName('list-item');
+let completedListItem = document.getElementsByClassName('completed-list-item');
 const inputContainer = document.getElementById('input-container');
 const plusCircle = document.querySelector('.fa-plus-circle');
 // const inputContainer = document.getElementById('input-container');
@@ -82,7 +83,8 @@ background.addEventListener('click', () => {
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
     plusCircle.style.color = '#ffffff';
-    darkListStyle()
+    darkListStyle(listItem);
+    darkListStyle(completedListItem);
     // menuBtnBurger.classList.remove('hidden-burger');
   } else {
     // console.log('NO!');
@@ -93,48 +95,12 @@ background.addEventListener('click', () => {
     inputContainer.style.backgroundColor = "#EBF1F5";
     input.style.color = "#808080";
     plusCircle.style.color = 'green';
-    lightListStyle();
-    // #EBF1F5
-    // menuBtnBurger.classList.add('hidden-burger');
-    // console.log("The background is " + container.style.backgroundColor);
+    lightListStyle(listItem);
+    lightListStyle(completedListItem);
   }
 
 });
 
-// if(container.style.backgroundColor == 'rgb(49, 49, 91)'){
-//   console.log('YES!');
-//   console.log("The background is " + container.style.backgroundColor);
-//   container.style.backgroundColor = 'rgb(255, 255, 255)';
-// } else {
-//   container.style.backgroundColor = 'rgb(49, 49, 91)';
-//   console.log('NO!');
-//   console.log("The background is " + container.style.backgroundColor);
-// }
-
-
-
-// console.log(container.style.backgroundColor);
-// console.log(container.classList);
-// console.log(container.classList.value );
-
-
-// if(container.classList.value == 'container-bg-dark') {
-//  console.log('YES!');
-//  console.log(container.style.backgroundColor);
-// } else {
-//   console.log('NO!');
-//   console.log(container.style.backgroundColor);
-// }
-
-
-
-// function toggleBgStyle() {
-//   // if() {
-//     console.log(" whitebg = " + container.style.backgroundColor);
-//   // }
-//   container.classList.remove('container-bg-dark');
-//   container.classList.add('container-bg-light');
-// }
 
 //get value for button and add event listener
 button.addEventListener('click', function() {
@@ -145,12 +111,12 @@ button.addEventListener('click', function() {
     clearInputField();
     // element.classList.contains
     if( container.style.backgroundColor == 'rgb(49, 49, 91)') {
-      console.log("YEEESSSSS");
-      console.log("The bg color is " + container.style.backgroundColor);
+      // console.log("YEEESSSSS");
+      // console.log("The bg color is " + container.style.backgroundColor);
     } else {
-      lightListStyle() ;
-      console.log("NOOOO");
-     console.log("The bg color is " + container.style.backgroundColor);
+      lightListStyle(listItem);
+    //   console.log("NOOOO");
+    //  console.log("The bg color is " + container.style.backgroundColor);
     }
     // console.log(containerBackgroundColor) ;
  
@@ -162,16 +128,16 @@ button.addEventListener('click', function() {
 });
 // console.log(containerBackgroundColor) ;
 
-function darkListStyle() {
-  for (let item of listItem) {
+function darkListStyle(el) {
+  for (let item of el) {
     console.log(item);
     item.classList.add('dark-list-style');
     item.classList.remove('light-list-style');
   }
 }
 
-function lightListStyle() {
-  for (let item of listItem) {
+function lightListStyle(el) {
+  for (let item of el) {
     console.log(item);
     item.classList.remove('dark-list-style');
     item.classList.add('light-list-style');
@@ -245,6 +211,15 @@ function createList(userInput) {
     editData(i, p);
     transferCompletedData(i, p, li, deleteTrash);
     completedListCount();
+
+    if( container.style.backgroundColor == 'rgb(49, 49, 91)') {
+      console.log("YEEESSSSS");
+      console.log("The bg color is " + container.style.backgroundColor);
+    } else {
+      lightListStyle(completedListItem) ;
+      console.log("NOOOO");
+     console.log("The bg color is " + container.style.backgroundColor);
+    }
   })
 
   li.addEventListener("mouseover", function() {
@@ -317,7 +292,8 @@ function completedListCount() {
 //  transfer list completed data/content over to completed-list container
 function transferCompletedData(i, p, li, deleteTrash) {
   let liCompleted = document.createElement("li");
-  liCompleted.setAttribute("class", "dark-list-style");
+  // liCompleted.setAttribute("class", "dark-list-style");
+  liCompleted.setAttribute("class","completed-list-item dark-list-style"); //set class attributes
   let checkCircleCompleted = document.createElement("span");
   let deleteTrash4CompletedList = document.createElement("span");
   let iCompleted = document.createElement("i");
