@@ -30,10 +30,19 @@ let listItem = document.getElementsByClassName('list-item');
 let completedListItem = document.getElementsByClassName('completed-list-item');
 const inputContainer = document.getElementById('input-container');
 const plusCircle = document.querySelector('.fa-plus-circle');
+const faCheckCircle = document.getElementsByClassName('fa-check-circle');
 // const inputContainer = document.getElementById('input-container');
 // let backg = container.style.background;
-// console.log(listItem);
-
+//   for (let item of faCheckCircle) {
+//     if(item.classList.contains('fa-check-circle')) {
+//       console.log("yes!");
+//     } else {
+//       console.log("no!")
+//     }
+// }
+// if( container.style.backgroundColor !== 'rgb(49, 49, 91)') {
+//   iCompleted.classList.add("fa-check-circle-bg-color");
+// } 
   // for (let item of listItem) {
   //   console.log(item);
   //   // item.style.color = "red";
@@ -58,14 +67,25 @@ background.addEventListener('click', () => {
   // toggleBgStyle();
   menuBtnBurger.classList.toggle('hidden-burger');
 
+
+
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
     container.style.backgroundColor = 'rgb(49, 49, 91)';
     hr.style.backgroundColor = "#35355E";
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
     plusCircle.style.color = '#ffffff';
+    // faCheckCircle.style.color = '#ffffff';
     darkListStyle(listItem);
     darkListStyle(completedListItem);
+
+    for (let item of faCheckCircle) {
+      if(item.classList.contains('fa-check-circle')) {
+        item.classList.remove("fa-check-circle-bg-color");
+      }
+  }
+
+
   } else {
     container.style.backgroundColor = 'rgb(255, 255, 255)';
     hr.style.background = "rgba(128, 128, 128, 0.5)";
@@ -73,8 +93,15 @@ background.addEventListener('click', () => {
     inputContainer.style.backgroundColor = "#EBF1F5";
     input.style.color = "#808080";
     plusCircle.style.color = 'green';
+    // faCheckCircle.style.color = 'green';
     lightListStyle(listItem);
     lightListStyle(completedListItem);
+
+    for (let item of faCheckCircle) {
+      if(item.classList.contains('fa-check-circle')) {
+        item.classList.add("fa-check-circle-bg-color");
+      }
+  }
   }
 
 });
@@ -102,7 +129,7 @@ button.addEventListener('click', function() {
 
 function darkListStyle(el) {
   for (let item of el) {
-    console.log(item);
+    // console.log(item);
     item.classList.add('dark-list-style');
     item.classList.remove('light-list-style');
   }
@@ -121,7 +148,7 @@ function darkListStyle(el) {
 
 function lightListStyle(el) {
   for (let item of el) {
-    console.log(item);
+    // console.log(item);
     item.classList.remove('dark-list-style');
     item.classList.add('light-list-style');
     // item.classList.add('fa-circle-light-mode');
@@ -201,7 +228,11 @@ function createList(userInput) {
 
     if( container.style.backgroundColor !== 'rgb(49, 49, 91)') {
       lightListStyle(completedListItem);
-      // for(let x of checkCircle) {
+      // faCheckCircle.style.color = '#008000';
+      // for(let x of faCheckCircle) {
+      //   console.log(x);
+      // }
+
       //   // x.style.border('solid 1px black');
       // x.style.backgroundColor = 'blue';
       // // x.classList.add('fa-circle-light-mode');
@@ -210,6 +241,10 @@ function createList(userInput) {
       // }
     }
   })
+  // console.log(typeof faCheckCircle);
+  // for(let x of faCheckCircle) {
+  //   console.log(x);
+  // }
 
   li.addEventListener("mouseover", function() {
     deleteTrash.classList.remove("hide");
@@ -255,6 +290,7 @@ function editData(i, p) {
   if(i.className == "fas fa-circle") {
     i.className = "fas fa-check-circle";
     p.setAttribute("contenteditable", "false"); //makes content uneditable
+
   } else {
     i.className = "fas fa-circle";
     p.setAttribute("contenteditable", "true");
@@ -286,7 +322,7 @@ function transferCompletedData(i, p, li, deleteTrash) {
   let checkCircleCompleted = document.createElement("span");
   let deleteTrash4CompletedList = document.createElement("span");
   let iCompleted = document.createElement("i");
-
+// console.log(iCompleted)
   if(i.className == "fas fa-check-circle") {
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
     deleteTrash4CompletedList.addEventListener('click', function() {
@@ -295,12 +331,19 @@ function transferCompletedData(i, p, li, deleteTrash) {
   console.log(completedListCount());
     });
 
+
+
     // checkCircleCompleted.addEventListener('click', function() {
     //   ReverseTransferData(li, liCompleted);
     //   console.log(ReverseTransferData(li, liCompleted));
     // });
 
     iCompleted.setAttribute("class", "fas fa-check-circle");
+
+    if( container.style.backgroundColor !== 'rgb(49, 49, 91)') {
+      iCompleted.classList.add("fa-check-circle-bg-color");
+    } 
+    
     document.getElementById("completed-list").prepend(liCompleted); 
     p.innerHTML = li.innerText;
     checkCircleCompleted.appendChild(iCompleted);
@@ -315,6 +358,7 @@ function transferCompletedData(i, p, li, deleteTrash) {
   // for(let i = 0; i < ul.length; i++) {
   //   console.log(ul[i]);
   // }
+  // return iCompleted;
 }
 
 

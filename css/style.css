@@ -265,12 +265,16 @@ a {
 }
 
 .hidden-burger {
-  background: #808080;
+  /* background: #808080; */
+  background: rgba(49, 49, 91, 0.7);
 }
+
+
 
 .hidden-burger::before,
 .hidden-burger::after {
-  background: #808080;
+  /* background: #808080; */
+  background: rgba(49, 49, 91, 0.7);
 }
 
 /* .hidden-burger::before {
@@ -373,8 +377,10 @@ a {
 }
 
 #input-container {
-width: 284px;
-max-width: 286px;
+/* width: 284px;
+max-width: 286px; */
+width: 306px;
+max-width: 320px;
 padding: 0 15px;
 display: flex; 
 justify-content: space-between;
@@ -459,7 +465,7 @@ button[type="submit"] {
 } 
 
 hr{
-  margin: 14px -20px 0 -20px;
+  margin: 14px -20px 0 -16px;
   width: 346px;
   max-width: 346px;
   /* margin-left: -30px;
@@ -638,6 +644,12 @@ text-decoration: line-through;
   position: relative;
   display: inline-block;
 }
+
+.fa-check-circle-bg-color {
+  /* color: #008080; */
+  color: green;
+}
+
 
 .fa-check-circle::after{
   content: "";
