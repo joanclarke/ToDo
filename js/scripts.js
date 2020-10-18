@@ -1,6 +1,4 @@
 let body = document.querySelector('body');
-// let container = document.getElementById('container');
-// let li= document.querySelector('li');
 let button = document.getElementById('button');
 let input = document.getElementById('inputText');
 let ul = document.getElementById("completed-list");
@@ -16,13 +14,6 @@ container.style.backgroundColor = 'rgb(49, 49, 91)'; //set initial background co
 
 // const containerBackgroundColor = style.backgroundColor;
 
-// const container = document.querySelector('#container')
-// const backgroundColor = container.style.backgroundColor;
-// console.log("bg is " + backgroundColor);
-// const containerBackgroundColor = style.backgroundColor
-// console.log(containerBackgroundColor) // rgb(49, 49, 91)
-// console.log(style);
-
 let arr = []; 
 
 
@@ -34,7 +25,6 @@ let menuOpen = false;
 let menuItems = document.getElementById('menu-items');
 let menuItem = document.querySelector('.menu-item');
 let background = document.getElementById('background');
-// console.log(menuItems, menuItem);
 let hr = document.getElementById('line');
 let listItem = document.getElementsByClassName('list-item');
 let completedListItem = document.getElementsByClassName('completed-list-item');
@@ -67,29 +57,17 @@ background.addEventListener('click', () => {
   // li.style.background = "red";
   // toggleBgStyle();
   menuBtnBurger.classList.toggle('hidden-burger');
-  
-  // for (let item of heading) {
-  //   console.log(item);
-  //   item.style.color = "red";
-  // }
-  // console.log(" whitebg = " + container.style.backgroundColor);
 
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
-    console.log('YOU CALLED');
     container.style.backgroundColor = 'rgb(49, 49, 91)';
-    // console.log("The background is " + container.style.backgroundColor);
-    // hr.style.background = "red";
     hr.style.backgroundColor = "#35355E";
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
     plusCircle.style.color = '#ffffff';
     darkListStyle(listItem);
     darkListStyle(completedListItem);
-    // menuBtnBurger.classList.remove('hidden-burger');
   } else {
-    // console.log('NO!');
     container.style.backgroundColor = 'rgb(255, 255, 255)';
-    // hr.style.background = "blue";
     hr.style.background = "rgba(128, 128, 128, 0.5)";
     hr.style.height = "1px";
     inputContainer.style.backgroundColor = "#EBF1F5";
@@ -110,15 +88,9 @@ button.addEventListener('click', function() {
     pushData();
     clearInputField();
     // element.classList.contains
-    if( container.style.backgroundColor == 'rgb(49, 49, 91)') {
-      // console.log("YEEESSSSS");
-      // console.log("The bg color is " + container.style.backgroundColor);
-    } else {
+    if( container.style.backgroundColor !== 'rgb(49, 49, 91)') {
       lightListStyle(listItem);
-    //   console.log("NOOOO");
-    //  console.log("The bg color is " + container.style.backgroundColor);
     }
-    // console.log(containerBackgroundColor) ;
  
   }
 
@@ -136,11 +108,24 @@ function darkListStyle(el) {
   }
 }
 
+// let faCircle = document.getElementsByClassName('fa-circle');
+// let faCheckBorder = document.getElementsByClassName('fa-check-border');
+
+// for(let x of faCheckBorder) {
+//   // x.style.border('solid 1px black');
+// x.style.border = 'black';
+// // x.classList.add('fa-circle-light-mode');
+// console.log(x);
+// console.log(faCheckBorder.style.color = 'blue');
+// }
+
 function lightListStyle(el) {
   for (let item of el) {
     console.log(item);
     item.classList.remove('dark-list-style');
     item.classList.add('light-list-style');
+    // item.classList.add('fa-circle-light-mode');
+    // faCircle.style.border('solid 1px black');
   }
 }
 
@@ -194,6 +179,8 @@ function createList(userInput) {
   i.setAttribute("class", "fas fa-circle");
 
   let checkCircle = document.createElement("span");
+  checkCircle.setAttribute("class", "fa-check-border");
+
   let deleteTrash = document.createElement("span");//create span for holding trash bin icon
   deleteTrash.setAttribute("class", "hide");
   deleteTrash.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
@@ -212,13 +199,15 @@ function createList(userInput) {
     transferCompletedData(i, p, li, deleteTrash);
     completedListCount();
 
-    if( container.style.backgroundColor == 'rgb(49, 49, 91)') {
-      console.log("YEEESSSSS");
-      console.log("The bg color is " + container.style.backgroundColor);
-    } else {
-      lightListStyle(completedListItem) ;
-      console.log("NOOOO");
-     console.log("The bg color is " + container.style.backgroundColor);
+    if( container.style.backgroundColor !== 'rgb(49, 49, 91)') {
+      lightListStyle(completedListItem);
+      // for(let x of checkCircle) {
+      //   // x.style.border('solid 1px black');
+      // x.style.backgroundColor = 'blue';
+      // // x.classList.add('fa-circle-light-mode');
+      // console.log(x);
+      // // console.log(faCheckBorder.style.color = 'blue');
+      // }
     }
   })
 

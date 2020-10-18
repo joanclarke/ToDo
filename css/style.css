@@ -30,9 +30,8 @@ body {
   position: relative;
   /* height: 80vh; */
   height: 90%;
-  /* background-color: rgb(49, 49, 91); */
-  /* padding: 30px; */
-  padding: 20px;
+  /* padding: 20px; */
+  padding: 20px 16px 20px 16px;
   width: 346px;
   max-width: 346px;
   /* overflow-y: scroll; */
@@ -370,7 +369,7 @@ a {
 }
 
 #todo-container {
-  position: absolute;
+  /* position: absolute; */
 }
 
 #input-container {
@@ -523,9 +522,15 @@ li.list-item, #completed-list li {
 }
 
 .light-list-style {
-  background-color: #dedee7;
+  /* background-color: #dedee7; */
+  background-color: #ffffff;
+  border: solid 1px #f8f6f8;
+  box-shadow: 4px 2px 6px #e4e3e4;
+  border: solid 2px #e7e7f9;
+  border-radius: 50%;
 }
-
+/* border: solid 2px #e7e7f9;
+border-radius: 50%; */
 
 
 /* #completed-list li p {
@@ -545,7 +550,7 @@ li p.scroll {
   /* overflow: hidden; */
   white-space: nowrap;
   /* text-decoration: line-through; */
-  height: 1.5rem;
+  /* height: 1.5rem; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -596,13 +601,34 @@ text-decoration: line-through;
   top: 50%;
 } */
 
+.fa-check-border {
+  /* margin-top: -1px; */
+  border: solid 1px #e7e7f9;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background-color: #e7e7f9;
+}
+
 .fa-circle {
-  color: #d1cccc;
+  /* color: #d1cccc; */
+  /* margin-top: 2px; */
+  margin-top: 1px;
+  /* margin-left: 1px; */
+  color: #ffffff;
   font-size: 1.3rem;
 }
 
+
+
+
+/* .fa-circle-light-mode {
+  border: solid 2px #e7e7f9;
+  border-radius: 50%;
+} */
+
 .fa-circle:hover {
-  color: #ffffff;
+  color: #e7e7f9;
 }
 
 .fa-check-circle {
