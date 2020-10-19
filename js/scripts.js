@@ -47,7 +47,10 @@ background.addEventListener('click', () => {
     hr.style.backgroundColor = "#35355E";
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
-    plusCircle.style.color = '#ffffff';
+    // plusCircle.style.color = '#ffffff';
+
+    plusCircle.classList.remove('hover-style');
+    plusCircle.classList.add('fa-plus-circle-color');
     darkListStyle(listItem);
     darkListStyle(completedListItem);
 
@@ -64,7 +67,11 @@ background.addEventListener('click', () => {
     hr.style.height = "1px";
     inputContainer.style.backgroundColor = "#EBF1F5";
     input.style.color = "#808080";
-    plusCircle.style.color = 'green';
+    // plusCircle.style.color = 'green';
+
+    plusCircle.classList.remove('fa-plus-circle-color');
+    plusCircle.classList.add('hover-style');
+
     lightListStyle(listItem);
     lightListStyle(completedListItem);
 
