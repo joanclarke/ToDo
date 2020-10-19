@@ -8,6 +8,7 @@ let count = document.getElementById("count");
 
 const container = document.querySelector('#container');
 container.style.backgroundColor = 'rgb(49, 49, 91)'; //set initial background color.
+const listContainer = document.querySelector('#list-container');
 
 let arr = []; 
 
@@ -24,6 +25,7 @@ let completedListItem = document.getElementsByClassName('completed-list-item');
 const inputContainer = document.getElementById('input-container');
 const plusCircle = document.querySelector('.fa-plus-circle');
 const faCheckCircle = document.getElementsByClassName('fa-check-circle');
+let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
 // const inputContainer = document.getElementById('input-container');
 
 menuBtn.addEventListener('click', () => {
@@ -33,6 +35,13 @@ menuBtn.addEventListener('click', () => {
 menuItems.addEventListener('click', () => {
   toggleMenu();
 });
+
+for (let item of redirect2ToDo) {
+  item.addEventListener('click', () => {
+    listContainer.classList.add('list-container-top-padding')
+  });
+}
+
 
 background.addEventListener('click', () => {
 
@@ -116,10 +125,12 @@ function toggleMenu() {
     menuBtn.classList.add('open');
     menuOpen = true;
     menu.style.width = "100%";
+    menu.style.height = "100%";
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;
     menu.style.width = "0%";
+    menu.style.height = "0%";
   }
 }
 
