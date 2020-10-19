@@ -126,6 +126,7 @@ function toggleMenu() {
     menuOpen = true;
     menu.style.width = "100%";
     menu.style.height = "100%";
+    // menuBtnBurger.style.backgroundColor = "red"
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;

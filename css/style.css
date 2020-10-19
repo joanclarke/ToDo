@@ -163,6 +163,7 @@ a {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  z-index: 6;
 }
 
 /* The actual popup (appears on top) */
@@ -276,16 +277,24 @@ a {
 }
 
 .hidden-burger {
-  /* background: #808080; */
-  background: rgba(49, 49, 91, 0.7);
+  background: #818181;
+  /* background: rgba(49, 49, 91, 0.7); */
 }
 
 
 
 .hidden-burger::before,
 .hidden-burger::after {
-  /* background: #808080; */
-  background: rgba(49, 49, 91, 0.7);
+  background: #818181;
+  /* background: rgba(49, 49, 91, 0.7); */
+}
+
+.menu-btn.open .menu-btn_burger .hidden-burger::before {
+  background: red;
+}
+
+.menu-btn.open .menu-btn_burger .hidden-burger::after {
+  background: red;
 }
 
 /* .hidden-burger::before {
