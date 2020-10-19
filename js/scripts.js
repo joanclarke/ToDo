@@ -35,9 +35,13 @@ menuItems.addEventListener('click', () => {
 });
 
 background.addEventListener('click', () => {
+
+  background.innerText = "Light Mode";
+  background.classList.add('change-background');
+  // console.log(background.innerText);
   body.style.color = "#808080";
   menuBtnBurger.classList.toggle('hidden-burger');
-
+  // console.log(background.innerHTML);
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
     container.style.backgroundColor = 'rgb(49, 49, 91)';
     hr.style.backgroundColor = "#35355E";
@@ -53,6 +57,8 @@ background.addEventListener('click', () => {
       }
     }
   } else {
+    background.innerText = "Dark Mode";
+    // console.log(background.innerText);
     container.style.backgroundColor = 'rgb(255, 255, 255)';
     hr.style.background = "rgba(128, 128, 128, 0.5)";
     hr.style.height = "1px";

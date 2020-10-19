@@ -344,7 +344,7 @@ a {
   align-items: center;
 }
 
-.menu > ul > li > a{
+.menu > ul > li > a, .change-background {
   /* color: #ffffff; */
   font-size: 1.5rem;
   padding: 20px;
@@ -356,11 +356,12 @@ a {
 
 }
 
-.menu > ul > li > a:hover{
+.menu > ul > li > a:hover,.change-background:hover {
   text-shadow: 2px 0 8px #aaa7a7;
+  color: #f1f1f1;
 }
 
-.menu > ul > li > a:hover, .menu > ul > li > a:focus {
+ .menu > ul > li > a:focus, .change-background:focus {
   color: #f1f1f1;
 }
 /* .menu-btn_burger:hover , .menu-btn_burger::before:hover , .menu-btn_burger::after:hover {
