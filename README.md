@@ -1,15 +1,18 @@
 # to-do
-A todo list
+To Do list
 
-Steps
+The features on this To Do list are:
+This To Do App will enable users to do the following:
 
-Step 1: Create new list
-Step 2: View all lists
-Step 3: Display list
-Step 4: Rename list
-Step 5: Delete empty list
-Step 6: Create task
-Step 7: Mark task as complete
-Step 8: Edit a task's content
-Step 9: Delete a task
+1: Create new task
+2: View all tasks/items (To Do and Completed)
+3: Delete task
+4: Automatically delete empty task
+5: Edit a task's content
+6: Mark task as complete
+7: Delete task
+
+To be done:
+* Display list name
+* Rename list or make list name editable
 
