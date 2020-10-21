@@ -1,4 +1,5 @@
 let body = document.querySelector('body');
+const popupText = document.getElementById('popuptext');
 let button = document.getElementById('button');
 let input = document.getElementById('inputText');
 let ul = document.getElementById("completed-list");
@@ -28,6 +29,30 @@ const faCheckCircle = document.getElementsByClassName('fa-check-circle');
 let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
 // const inputContainer = document.getElementById('input-container');
 
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
+let popup = document.getElementById("myPopup");
+// let popupContainer = document.getElementsByClassName("popup");
+// popup.classList.toggle("show");
+
+// window.addEventListener('click', (event) => {
+//   for(let i of popupContainer) {
+//     if (i.className !== 'show-div') {
+//       i.classList.add('show-div')
+//       // popupText.style.visibility = 'hidden';
+//     } else if (i.className == 'show-div') {
+//       i.classList.remove('show-div')
+//     }
+//   }
+  
+// })
+
+
+
 menuBtn.addEventListener('click', () => {
   toggleMenu();
 });
@@ -42,9 +67,7 @@ for (let item of redirect2ToDo) {
   });
 }
 
-
 background.addEventListener('click', () => {
-
   background.innerText = "Light Mode";
   background.classList.add('change-background');
   // console.log(background.innerText);
@@ -95,7 +118,7 @@ background.addEventListener('click', () => {
 //get value for button and add event listener
 button.addEventListener('click', function() {
   if(input.value == "") {
-    addItemAlert();
+    addItemAlert(popup);
   } else {
     pushData();
     clearInputField();
@@ -105,6 +128,7 @@ button.addEventListener('click', function() {
     }
   }
 });
+
 
 function darkListStyle(el) {
   for (let item of el) {
@@ -135,9 +159,9 @@ function toggleMenu() {
   }
 }
 
-function addItemAlert() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
+function addItemAlert(x) {
+  // let popup = document.getElementById("myPopup");
+  x.classList.toggle("show");
 }
 
 //display user input on screen
