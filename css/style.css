@@ -42,18 +42,12 @@ body {
 }
 
 #todo-title {
-  /* font-size: 2rem; */
-  /* text-align: right; */
   width: 40%;
+  /* width: 400px; */
 }
 
 .todo-title-hover-light-mode:hover{
-  /* font-size: 2rem; */
-  /* text-align: right; */
-  /* margin-top: 5px; */
-  /* background-color: white */
   background-color: #373760;
-  /* background-color: rgb(235, 241, 245) */
 }
 
 /* hover effect for title when in light mode background */
@@ -64,13 +58,14 @@ body {
 
 
 #todo-title p#todo-title-text{
-  padding: 7px;
+  margin: 7px;
   white-space: nowrap;
   overflow: hidden;
   font-size: 1.2rem;
   text-align: right;
   color: #ffffff;
   text-transform: uppercase;
+  /* text-overflow: ellipsis; */
 }
 
 #todo-title p#todo-title-text:hover{
@@ -83,6 +78,7 @@ background-color: #373760; */
   color: #818181;
 } */
 
+/* add placeholder like text in paragraph that disappears when clicked */
 #todo-title p:empty:not(:focus)::before {
   content: attr(data-placeholder);
   color: #818181;

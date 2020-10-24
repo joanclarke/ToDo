@@ -31,67 +31,22 @@ let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
 
 let toDoTitle = document.getElementById('todo-title');
 let toDoTitleText = document.getElementById('todo-title-text');
-
-toDoTitle.addEventListener('click', function() {
-  // toDoTitleText.classList.remove('text-placeholder');
-  // console.log(toDoTitleText.innerText);
+toDoTitle.addEventListener('mouseleave', function() {
+  if( toDoTitleText.innerText.length >= 12) {
+  alert('Title should not be more than 12 characters including spaces')
+  }
+  console.log(toDoTitleText.innerText.length )
 })
-
-
+// console.log(toDoTitleText.innerText.length)
 // window.addEventListener('click', function(e){   
 //   if (document.getElementById('todo-title-text').contains(e.target)){
 //     // Clicked in box
-    
-//     if(document.getElementById('todo-title-text').innerText == "") {
-//       toDoTitleText.classList.remove('text-placeholder');
-//       // toDoTitleText.style.content = "TEXT TEXT";
-//     } else {
-//       // toDoTitleText.classList.add('text-placeholder');
-//     }
-//       console.log("Inside");
-  
 //   } else{
 //     // Clicked outside the box
-//     console.log("Outside");
-//     // toDoTitleText.classList.add('text-placeholder');
 //   }
 // });
 
-// body.addEventListener('enter', function() {
-  
-//   if(toDoTitleText.innerText == "") {
-//     toDoTitleText.classList.add('text-placeholder');
-//     console.log("HEY YOW")
-//     console.log(toDoTitleText.innerText);
-//   } else {
-//     toDoTitleText.classList.remove('text-placeholder');
-//     console.log(toDoTitleText.innerText);
-//   }
-
-// })
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
-
 let popup = document.getElementById("myPopup");
-// let popupContainer = document.getElementsByClassName("popup");
-// popup.classList.toggle("show");
-
-// window.addEventListener('click', (event) => {
-//   for(let i of popupContainer) {
-//     if (i.className !== 'show-div') {
-//       i.classList.add('show-div')
-//       // popupText.style.visibility = 'hidden';
-//     } else if (i.className == 'show-div') {
-//       i.classList.remove('show-div')
-//     }
-//   }
-  
-// })
-
-
 
 menuBtn.addEventListener('click', () => {
   toggleMenu();
@@ -121,16 +76,11 @@ background.addEventListener('click', () => {
     inputContainer.style.backgroundColor = "#282851";
     // plusCircle.style.color = '#ffffff';
 
-  
+    // remove light mode background-color on hover and replace it with dark mode background-color
     toDoTitle.addEventListener('mouseover', function() {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
       toDoTitle.classList.add('todo-title-hover-light-mode');
     })
-    // toDoTitle.addEventListener('mouseleave', function() {
-    //   toDoTitle.classList.add('todo-title-hover-dark-mode');
-    //   toDoTitle.classList.remove('todo-title-hover-light-mode');
-    // })
-
 
 
     plusCircle.classList.remove('hover-style');
@@ -149,10 +99,12 @@ background.addEventListener('click', () => {
     container.style.backgroundColor = 'rgb(255, 255, 255)';
     toDoTitleText.style.color = "#9d9dc0";
 
+    // remove dark mode background-color on hover and replace it with light mode background-color
     toDoTitle.addEventListener('mouseover', function() {
       toDoTitle.classList.add('todo-title-hover-dark-mode');
       toDoTitle.classList.remove('todo-title-hover-light-mode');
     })
+    // toggle light mode and dark mode hover on mouseleave
     toDoTitle.addEventListener('mouseleave', function() {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
       toDoTitle.classList.add('todo-title-hover-light-mode');
