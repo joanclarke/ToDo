@@ -41,6 +41,12 @@ body {
   justify-content: space-between
 }
 
+.small {
+  text-align: center;
+  font-size: 0.1rem;
+  color: #ff0000;
+}
+
 #todo-title {
   width: 40%;
   /* width: 400px; */
@@ -48,12 +54,13 @@ body {
 
 .todo-title-hover-light-mode:hover{
   background-color: #373760;
+  /* color: #ffffff; */
 }
 
 /* hover effect for title when in light mode background */
 .todo-title-hover-dark-mode{
   /* background-color: #f0f0f79c; */
-  background-color: rgba(238, 240, 241, 0.705)
+  background-color: rgba(238, 240, 241, 0.705);
 }
 
 
@@ -63,7 +70,8 @@ body {
   overflow: hidden;
   font-size: 1.2rem;
   text-align: right;
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: #9d9dc0;
   text-transform: uppercase;
   /* text-overflow: ellipsis; */
 }

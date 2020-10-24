@@ -31,10 +31,29 @@ let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
 
 let toDoTitle = document.getElementById('todo-title');
 let toDoTitleText = document.getElementById('todo-title-text');
-toDoTitle.addEventListener('mouseleave', function() {
-  if( toDoTitleText.innerText.length >= 12) {
-  alert('Title should not be more than 12 characters including spaces')
+let warningText = document.getElementById('warning');
+
+
+// show warning and change text and border color to red when text limit is exceeded
+toDoTitle.addEventListener('keydown', function() {
+  if(toDoTitleText.innerText.length <= 12) {
+    toDoTitle.style.border = "none";
+    toDoTitleText.style.color = "#808080";
+    warningText.classList.add('hide');
+    // alert('To Do Title should be less than 13 characters');
+  } else {
+    toDoTitle.style.border = "solid 1px red";
+    toDoTitleText.style.color = "red";
+    warningText.classList.remove('hide');
   }
+})
+
+toDoTitle.addEventListener('mouseleave', function() {
+  // if( toDoTitleText.innerText.length >= 12) {
+  //   toDoTitle.style.border = "solid 1px red";
+  //   toDoTitleText.style.color = "red";
+  //   // alert('To Do Title should be less than 13 characters');
+  // }
   console.log(toDoTitleText.innerText.length )
 })
 // console.log(toDoTitleText.innerText.length)
@@ -66,14 +85,17 @@ background.addEventListener('click', () => {
   background.innerText = "Light Mode";
   background.classList.add('change-background');
   // console.log(background.innerText);
-  body.style.color = "#808080";
+  // body.style.color = "#808080";
   menuBtnBurger.classList.toggle('hidden-burger');
   // console.log(background.innerHTML);
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
     container.style.backgroundColor = 'rgb(49, 49, 91)';
+    // toDoTitleText.style.color = "#ffffff";
     hr.style.backgroundColor = "#35355E";
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
+    input.style.color = "#d1cccc";
+    body.style.color = "#d1cccc";
     // plusCircle.style.color = '#ffffff';
 
     // remove light mode background-color on hover and replace it with dark mode background-color
@@ -97,7 +119,7 @@ background.addEventListener('click', () => {
     background.innerText = "Dark Mode";
     // console.log(background.innerText);
     container.style.backgroundColor = 'rgb(255, 255, 255)';
-    toDoTitleText.style.color = "#9d9dc0";
+    // toDoTitleText.style.color = "#9d9dc0";
 
     // remove dark mode background-color on hover and replace it with light mode background-color
     toDoTitle.addEventListener('mouseover', function() {
@@ -114,6 +136,7 @@ background.addEventListener('click', () => {
     hr.style.height = "1px";
     inputContainer.style.backgroundColor = "#EBF1F5";
     input.style.color = "#808080";
+    body.style.color = "#808080";
     // plusCircle.style.color = 'green';
 
     plusCircle.classList.remove('fa-plus-circle-color');
