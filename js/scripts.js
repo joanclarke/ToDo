@@ -29,6 +29,46 @@ const faCheckCircle = document.getElementsByClassName('fa-check-circle');
 let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
 // const inputContainer = document.getElementById('input-container');
 
+let toDoTitle = document.getElementById('todo-title');
+let toDoTitleText = document.getElementById('todo-title-text');
+
+toDoTitle.addEventListener('click', function() {
+  // toDoTitleText.classList.remove('text-placeholder');
+  // console.log(toDoTitleText.innerText);
+})
+
+
+// window.addEventListener('click', function(e){   
+//   if (document.getElementById('todo-title-text').contains(e.target)){
+//     // Clicked in box
+    
+//     if(document.getElementById('todo-title-text').innerText == "") {
+//       toDoTitleText.classList.remove('text-placeholder');
+//       // toDoTitleText.style.content = "TEXT TEXT";
+//     } else {
+//       // toDoTitleText.classList.add('text-placeholder');
+//     }
+//       console.log("Inside");
+  
+//   } else{
+//     // Clicked outside the box
+//     console.log("Outside");
+//     // toDoTitleText.classList.add('text-placeholder');
+//   }
+// });
+
+// body.addEventListener('enter', function() {
+  
+//   if(toDoTitleText.innerText == "") {
+//     toDoTitleText.classList.add('text-placeholder');
+//     console.log("HEY YOW")
+//     console.log(toDoTitleText.innerText);
+//   } else {
+//     toDoTitleText.classList.remove('text-placeholder');
+//     console.log(toDoTitleText.innerText);
+//   }
+
+// })
 // window.onclick = function(event) {
 //   if (event.target == modal) {
 //     modal.style.display = "none";
@@ -81,6 +121,18 @@ background.addEventListener('click', () => {
     inputContainer.style.backgroundColor = "#282851";
     // plusCircle.style.color = '#ffffff';
 
+  
+    toDoTitle.addEventListener('mouseover', function() {
+      toDoTitle.classList.remove('todo-title-hover-dark-mode');
+      toDoTitle.classList.add('todo-title-hover-light-mode');
+    })
+    // toDoTitle.addEventListener('mouseleave', function() {
+    //   toDoTitle.classList.add('todo-title-hover-dark-mode');
+    //   toDoTitle.classList.remove('todo-title-hover-light-mode');
+    // })
+
+
+
     plusCircle.classList.remove('hover-style');
     plusCircle.classList.add('fa-plus-circle-color');
     darkListStyle(listItem);
@@ -95,6 +147,17 @@ background.addEventListener('click', () => {
     background.innerText = "Dark Mode";
     // console.log(background.innerText);
     container.style.backgroundColor = 'rgb(255, 255, 255)';
+    toDoTitleText.style.color = "#9d9dc0";
+
+    toDoTitle.addEventListener('mouseover', function() {
+      toDoTitle.classList.add('todo-title-hover-dark-mode');
+      toDoTitle.classList.remove('todo-title-hover-light-mode');
+    })
+    toDoTitle.addEventListener('mouseleave', function() {
+      toDoTitle.classList.remove('todo-title-hover-dark-mode');
+      toDoTitle.classList.add('todo-title-hover-light-mode');
+    })
+
     hr.style.background = "rgba(128, 128, 128, 0.5)";
     hr.style.height = "1px";
     inputContainer.style.backgroundColor = "#EBF1F5";
@@ -303,18 +366,3 @@ function transferCompletedData(i, p, li, deleteTrash) {
   }
 
 }
-
-
-
-// https://stackoverflow.com/questions/33004177/add-user-input-to-list-on-button-click-in-javascript
-
-// https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript
-
-
-// App design link:
-// https://www.uplabs.com/posts/todo-list-mobile-app
-
-// https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content#How_does_it_work
- 
-// MOVE CHILD
-// https://stackoverflow.com/questions/20910147/how-to-move-all-html-element-children-to-another-parent-using-javascript

@@ -37,7 +37,55 @@ body {
 }
 
 #menu-container {
-  
+  display: flex;
+  justify-content: space-between
+}
+
+#todo-title {
+  /* font-size: 2rem; */
+  /* text-align: right; */
+  width: 40%;
+}
+
+.todo-title-hover-light-mode:hover{
+  /* font-size: 2rem; */
+  /* text-align: right; */
+  /* margin-top: 5px; */
+  /* background-color: white */
+  background-color: #373760;
+  /* background-color: rgb(235, 241, 245) */
+}
+
+/* hover effect for title when in light mode background */
+.todo-title-hover-dark-mode{
+  /* background-color: #f0f0f79c; */
+  background-color: rgba(238, 240, 241, 0.705)
+}
+
+
+#todo-title p#todo-title-text{
+  padding: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.2rem;
+  text-align: right;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+#todo-title p#todo-title-text:hover{
+/* border: solid 1px #7d7d8db9; */
+/* background-color: #7d7d8db9;
+background-color: #373760; */
+}
+/* #todo-title p#todo-title-text.text-placeholder::before {
+  content: "Enter Title";
+  color: #818181;
+} */
+
+#todo-title p:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+  color: #818181;
 }
 
 #list-container-wrapper {
