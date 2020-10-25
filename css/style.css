@@ -29,8 +29,6 @@ body {
   padding: 20px 16px 20px 16px;
   width: 346px;
   max-width: 346px;
-  /* overflow-y: scroll; */
-  /* background-color: rgb(49, 49, 91); */
   border: solid 1px #131313;
   border: none;
   box-shadow: 3px 8px 8px #131313;
@@ -43,8 +41,17 @@ body {
 
 .small {
   text-align: center;
-  font-size: 0.1rem;
-  color: #ff0000;
+  font-size: 0.2rem;
+  /* font-weight: 600; */
+  color: #ffffff;
+  background-color:  #ff00009f;
+  border-radius: 15px;
+  /* padding: 1px 0; */
+}
+
+#char-limit.small {
+  background-color:  #9d9dc01a;
+  color: #969494;
 }
 
 #todo-title {
@@ -54,15 +61,13 @@ body {
 
 .todo-title-hover-light-mode:hover{
   background-color: #373760;
-  /* color: #ffffff; */
+  /* border-radius: 0; */
 }
 
 /* hover effect for title when in light mode background */
 .todo-title-hover-dark-mode{
-  /* background-color: #f0f0f79c; */
   background-color: rgba(238, 240, 241, 0.705);
 }
-
 
 #todo-title p#todo-title-text{
   margin: 7px;
@@ -70,21 +75,9 @@ body {
   overflow: hidden;
   font-size: 1.2rem;
   text-align: right;
-  /* color: #ffffff; */
   color: #9d9dc0;
   text-transform: uppercase;
-  /* text-overflow: ellipsis; */
 }
-
-#todo-title p#todo-title-text:hover{
-/* border: solid 1px #7d7d8db9; */
-/* background-color: #7d7d8db9;
-background-color: #373760; */
-}
-/* #todo-title p#todo-title-text.text-placeholder::before {
-  content: "Enter Title";
-  color: #818181;
-} */
 
 /* add placeholder like text in paragraph that disappears when clicked */
 #todo-title p:empty:not(:focus)::before {
@@ -98,7 +91,7 @@ background-color: #373760; */
 }
 
 .list-container-top-padding {
-padding-top: 3px;
+  padding-top: 3px;
 }
 
 #completed {
@@ -597,6 +590,10 @@ text-decoration: line-through;
     max-width: 100%;
     border: none;
   }
+
+  #todo-title {
+    width: 54%;
+}
 
   #input-container {
     width: 420px;

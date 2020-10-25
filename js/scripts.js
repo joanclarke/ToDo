@@ -31,39 +31,37 @@ let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
 
 let toDoTitle = document.getElementById('todo-title');
 let toDoTitleText = document.getElementById('todo-title-text');
-let warningText = document.getElementById('warning');
-
+let warningText = document.getElementById('char-limit-warning');
+let charLimit = document.getElementById('char-limit');
 
 // show warning and change text and border color to red when text limit is exceeded
 toDoTitle.addEventListener('keydown', function() {
-  if(toDoTitleText.innerText.length <= 12) {
+
+  if(toDoTitleText.innerText.length <= 13) {
     toDoTitle.style.border = "none";
+    // toDoTitle.style.backgroundColor = "none";
     toDoTitleText.style.color = "#808080";
-    warningText.classList.add('hide');
-    // alert('To Do Title should be less than 13 characters');
+    warningText.classList.add('hide');//add 'maximum character limit' exceeded warning
+    // charLimit.classList.remove('hide');
   } else {
-    toDoTitle.style.border = "solid 1px red";
-    toDoTitleText.style.color = "red";
-    warningText.classList.remove('hide');
+    // toDoTitle.style.border = "solid 0.5px #ff0000";
+    // toDoTitle.style.backgroundColor = "none";
+    toDoTitleText.style.color = "#ff0000";
+    warningText.classList.remove('hide'); //remove 'maximum character limit' exceeded warning
   }
 })
 
-toDoTitle.addEventListener('mouseleave', function() {
-  // if( toDoTitleText.innerText.length >= 12) {
-  //   toDoTitle.style.border = "solid 1px red";
-  //   toDoTitleText.style.color = "red";
-  //   // alert('To Do Title should be less than 13 characters');
-  // }
-  console.log(toDoTitleText.innerText.length )
+//add 'character limit = 12' message when toDoTitle is clicked
+toDoTitle.addEventListener('click', function() {
+  charLimit.classList.add('hide');
 })
-// console.log(toDoTitleText.innerText.length)
-// window.addEventListener('click', function(e){   
-//   if (document.getElementById('todo-title-text').contains(e.target)){
-//     // Clicked in box
-//   } else{
-//     // Clicked outside the box
-//   }
-// });
+
+//remove 'character limit = 12' message when mouseleaves the toDoTitle
+toDoTitle.addEventListener('mouseleave', function() {
+  if(toDoTitleText.innerText.length == 0) {
+    charLimit.classList.remove('hide');
+  }
+})
 
 let popup = document.getElementById("myPopup");
 
