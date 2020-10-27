@@ -1,4 +1,4 @@
-# to-do
+# ToDo
 To Do list
 
 The features on this To Do list are:
