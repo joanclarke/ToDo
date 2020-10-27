@@ -1,57 +1,64 @@
-let body = document.querySelector('body');
-const popupText = document.getElementById('popuptext');
-let button = document.getElementById('button');
-let input = document.getElementById('inputText');
-let ul = document.getElementById("completed-list");
-let count = document.getElementById("count");
-// const menuBtn = document.querySelector('.menu-btn');
-// let menuOpen = false;
+//DECLARATIONS
 
+// BODY & CONTAINER 
+const body = document.querySelector('body');
 const container = document.querySelector('#container');
-container.style.backgroundColor = 'rgb(49, 49, 91)'; //set initial background color.
 const listContainer = document.querySelector('#list-container');
+const background = document.getElementById('background');
 
-let arr = []; 
-
+// MENU 
 const menuBtn = document.querySelector('.menu-btn');
-let menuBtnBurger = document.querySelector('.menu-btn_burger');
+const menuBtnBurger = document.querySelector('.menu-btn_burger');
 const menu = document.querySelector('.menu');
-let menuOpen = false;
-let menuItems = document.getElementById('menu-items');
-let menuItem = document.querySelector('.menu-item');
-let background = document.getElementById('background');
-let hr = document.getElementById('line');
-let listItem = document.getElementsByClassName('list-item');
-let completedListItem = document.getElementsByClassName('completed-list-item');
+const menuItems = document.getElementById('menu-items');
+const menuItem = document.querySelector('.menu-item');
+// const menuBtn = document.querySelector('.menu-btn');
+
+// TO DO LIST NAME OR TITLE 
+const toDoTitle = document.getElementById('todo-title');
+const toDoTitleText = document.getElementById('todo-title-text');
+const warningText = document.getElementById('char-limit-warning');
+const charLimit = document.getElementById('char-limit');
+
+// INPUT & POPUP 
+const popupText = document.getElementById('popuptext');
+const popup = document.getElementById("myPopup");
 const inputContainer = document.getElementById('input-container');
+const input = document.getElementById('inputText');
+const button = document.getElementById('button');
+
+// HR 
+const hr = document.getElementById('line');
+
+// LIST & ICONS
+const ul = document.getElementById("completed-list");
+const listItem = document.getElementsByClassName('list-item');
+const completedListItem = document.getElementsByClassName('completed-list-item');
 const plusCircle = document.querySelector('.fa-plus-circle');
 const faCheckCircle = document.getElementsByClassName('fa-check-circle');
-let redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
-// const inputContainer = document.getElementById('input-container');
+const redirect2ToDo = document.getElementsByClassName('redirect-2-to-do');
+const count = document.getElementById("count");
 
-let toDoTitle = document.getElementById('todo-title');
-let toDoTitleText = document.getElementById('todo-title-text');
-let warningText = document.getElementById('char-limit-warning');
-let charLimit = document.getElementById('char-limit');
+
+container.style.backgroundColor = 'rgb(49, 49, 91)'; //set initial background color.
+
+let menuOpen = false; //initially set menuOpen to false
+
+let arr = []; //create an empty array 
 
 // show warning and change text and border color to red when text limit is exceeded
 toDoTitle.addEventListener('keydown', function() {
-
   if(toDoTitleText.innerText.length <= 13) {
     toDoTitle.style.border = "none";
-    // toDoTitle.style.backgroundColor = "none";
     toDoTitleText.style.color = "#808080";
     warningText.classList.add('hide');//add 'maximum character limit' exceeded warning
-    // charLimit.classList.remove('hide');
   } else {
-    // toDoTitle.style.border = "solid 0.5px #ff0000";
-    // toDoTitle.style.backgroundColor = "none";
     toDoTitleText.style.color = "#ff0000";
     warningText.classList.remove('hide'); //remove 'maximum character limit' exceeded warning
   }
 })
 
-//add 'character limit = 12' message when toDoTitle is clicked
+//hide 'character limit = 12' notofication when toDoTitle is clicked
 toDoTitle.addEventListener('click', function() {
   charLimit.classList.add('hide');
 })
@@ -63,7 +70,7 @@ toDoTitle.addEventListener('mouseleave', function() {
   }
 })
 
-let popup = document.getElementById("myPopup");
+
 
 menuBtn.addEventListener('click', () => {
   toggleMenu();
@@ -82,26 +89,22 @@ for (let item of redirect2ToDo) {
 background.addEventListener('click', () => {
   background.innerText = "Light Mode";
   background.classList.add('change-background');
-  // console.log(background.innerText);
-  // body.style.color = "#808080";
   menuBtnBurger.classList.toggle('hidden-burger');
-  // console.log(background.innerHTML);
+
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
     container.style.backgroundColor = 'rgb(49, 49, 91)';
-    // toDoTitleText.style.color = "#ffffff";
     hr.style.backgroundColor = "#35355E";
     hr.style.height = "1.5px";
     inputContainer.style.backgroundColor = "#282851";
     input.style.color = "#d1cccc";
     body.style.color = "#d1cccc";
-    // plusCircle.style.color = '#ffffff';
 
     // remove light mode background-color on hover and replace it with dark mode background-color
     toDoTitle.addEventListener('mouseover', function() {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
       toDoTitle.classList.add('todo-title-hover-light-mode');
+      toDoTitle.style.color = "white";
     })
-
 
     plusCircle.classList.remove('hover-style');
     plusCircle.classList.add('fa-plus-circle-color');
@@ -115,10 +118,7 @@ background.addEventListener('click', () => {
     }
   } else {
     background.innerText = "Dark Mode";
-    // console.log(background.innerText);
     container.style.backgroundColor = 'rgb(255, 255, 255)';
-    // toDoTitleText.style.color = "#9d9dc0";
-
     // remove dark mode background-color on hover and replace it with light mode background-color
     toDoTitle.addEventListener('mouseover', function() {
       toDoTitle.classList.add('todo-title-hover-dark-mode');
@@ -158,14 +158,13 @@ button.addEventListener('click', function() {
   } else {
     pushData();
     clearInputField();
-    // element.classList.contains
     if( container.style.backgroundColor !== 'rgb(49, 49, 91)') {
       lightListStyle(listItem);
     }
   }
 });
 
-
+// remove light mode and add dark mode background features
 function darkListStyle(el) {
   for (let item of el) {
     item.classList.add('dark-list-style');
@@ -173,6 +172,7 @@ function darkListStyle(el) {
   }
 }
 
+// remove dark mode and add light mode background features
 function lightListStyle(el) {
   for (let item of el) {
     item.classList.remove('dark-list-style');
@@ -180,6 +180,7 @@ function lightListStyle(el) {
   }
 }
 
+// toggle between light and dark mode background features
 function toggleMenu() {
   if(!menuOpen) {
     menuBtn.classList.add('open');
@@ -195,6 +196,7 @@ function toggleMenu() {
   }
 }
 
+// toggle popup 
 function addItemAlert(x) {
   // let popup = document.getElementById("myPopup");
   x.classList.toggle("show");
@@ -209,7 +211,7 @@ function pushData() {
   for(i = 0; i < arr.length; i++) {
     text = arr[i];
   }
-
+  // create a list item or task if user has inputted text 
   if(text != "") {
     createList(text);
   }
@@ -220,17 +222,20 @@ function createList(userInput) {
   let li = document.createElement("li");  // create list item
   document.getElementById('list').prepend(li);  //add list item to the top of the parent element (ul)
   li.setAttribute("class","list-item dark-list-style"); //set class attributes
-  let p = document.createElement("p");
-  p.setAttribute("class", "scroll");  // make data/content editable
-  p.setAttribute("contenteditable", "true");
+  
+  let p = document.createElement("p");   // create paragraph element to be placed inside of list element 
+  p.setAttribute("class", "scroll");  // make data/content scrollable
+  p.setAttribute("contenteditable", "true"); // make data/content editable
 
-  let i = document.createElement("i");
+  //create circle icon for checking
+  let i = document.createElement("i"); 
   i.setAttribute("class", "fas fa-circle");
 
   let checkCircle = document.createElement("span");
   checkCircle.setAttribute("class", "fa-check-border");
 
-  let deleteTrash = document.createElement("span");//create span for holding trash bin icon
+  //create trash bin icon
+  let deleteTrash = document.createElement("span");
   deleteTrash.setAttribute("class", "hide");
   deleteTrash.innerHTML = "<i id='delete' class='delete fa fa-trash'></i>";
 
