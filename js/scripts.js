@@ -50,7 +50,7 @@ let arr = []; //create an empty array
 toDoTitle.addEventListener('keydown', function() {
   if(toDoTitleText.innerText.length <= 13) {
     toDoTitle.style.border = "none";
-    toDoTitleText.style.color = "#808080";
+    toDoTitleText.style.color = "#9d9dc0";
     warningText.classList.add('hide');//add 'maximum character limit' exceeded warning
   } else {
     toDoTitleText.style.color = "#ff0000";
@@ -103,7 +103,7 @@ background.addEventListener('click', () => {
     toDoTitle.addEventListener('mouseover', function() {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
       toDoTitle.classList.add('todo-title-hover-light-mode');
-      toDoTitle.style.color = "white";
+      // toDoTitle.style.color = "white";
     })
 
     plusCircle.classList.remove('hover-style');
@@ -124,6 +124,7 @@ background.addEventListener('click', () => {
       toDoTitle.classList.add('todo-title-hover-dark-mode');
       toDoTitle.classList.remove('todo-title-hover-light-mode');
     })
+
     // toggle light mode and dark mode hover on mouseleave
     toDoTitle.addEventListener('mouseleave', function() {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
