@@ -4,15 +4,12 @@ To Do list
 The features on this To Do list are:
 This To Do App will enable users to do the following:
 
-1: Create new task
+1: Create new tasks/items
 2: View all tasks/items (To Do and Completed)
-3: Delete task
+3: Delete tasks
 4: Automatically delete empty task
 5: Edit a task's content
-6: Mark task as complete
-7: Delete task
-
-To be done:
-* Display list name
-* Rename list or make list name editable
+6: Mark tasks as complete
+7: Delete tasks
+8: Display editable list title/ list name
 

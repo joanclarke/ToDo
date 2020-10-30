@@ -1,3 +1,6 @@
+
+/* GENERAL */
+
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +35,17 @@ li {
 a {
   text-decoration: none;
 }
+
+.show-div {
+  display: inline-block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+.hide {
+  display: none;
+}
+
 
 /* CONTAINER */
 
@@ -270,16 +284,6 @@ a {
   animation: fadeIn 1s
 }
 
-.show-div {
-  display: inline-block;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-}
-
-.hide {
-  display: none;
-}
-
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {opacity: 0;}
@@ -309,7 +313,7 @@ a {
   border-radius: 1.5rem;
 }
   
-#input-container:hover {
+#input-container:hover, #input-container-hover-effect {
   background-color: rgba(24, 27, 54, 0.7);
 }
 

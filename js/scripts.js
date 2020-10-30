@@ -90,7 +90,7 @@ background.addEventListener('click', () => {
   background.innerText = "Light Mode";
   background.classList.add('change-background');
   menuBtnBurger.classList.toggle('hidden-burger');
-
+  // changes to list when in dark mode 
   if(container.style.backgroundColor == 'rgb(255, 255, 255)'){
     container.style.backgroundColor = 'rgb(49, 49, 91)';
     hr.style.backgroundColor = "#35355E";
@@ -98,6 +98,12 @@ background.addEventListener('click', () => {
     inputContainer.style.backgroundColor = "#282851";
     input.style.color = "#d1cccc";
     body.style.color = "#d1cccc";
+
+    inputContainer.addEventListener('mouseover', function() {
+      inputContainer.classList.remove('input-container-hover-light-effect');
+      inputContainer.classList.add('input-container-hover-dark-effect');
+      // toDoTitle.style.color = "white";
+    })
 
     // remove light mode background-color on hover and replace it with dark mode background-color
     toDoTitle.addEventListener('mouseover', function() {
@@ -116,7 +122,7 @@ background.addEventListener('click', () => {
         item.classList.remove("fa-check-circle-bg-color");
       }
     }
-  } else {
+  } else { // changes to list when in light mode 
     background.innerText = "Dark Mode";
     container.style.backgroundColor = 'rgb(255, 255, 255)';
     // remove dark mode background-color on hover and replace it with light mode background-color
