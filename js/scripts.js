@@ -47,7 +47,7 @@ let menuOpen = false; //initially set menuOpen to false
 let arr = []; //create an empty array 
 
 // show warning and change text and border color to red when text limit is exceeded
-toDoTitle.addEventListener('keydown', function() {
+toDoTitle.addEventListener('keydown', () => {
   if(toDoTitleText.innerText.length <= 13) {
     toDoTitle.style.border = "none";
     toDoTitleText.style.color = "#9d9dc0";
@@ -59,12 +59,12 @@ toDoTitle.addEventListener('keydown', function() {
 })
 
 //hide 'character limit = 12' notofication when toDoTitle is clicked
-toDoTitle.addEventListener('click', function() {
+toDoTitle.addEventListener('click', () => {
   charLimit.classList.add('hide');
 })
 
 //remove 'character limit = 12' message when mouseleaves the toDoTitle
-toDoTitle.addEventListener('mouseleave', function() {
+toDoTitle.addEventListener('mouseleave', () => {
   if(toDoTitleText.innerText.length == 0) {
     charLimit.classList.remove('hide');
   }
@@ -99,14 +99,14 @@ background.addEventListener('click', () => {
     input.style.color = "#d1cccc";
     body.style.color = "#d1cccc";
 
-    inputContainer.addEventListener('mouseover', function() {
+    inputContainer.addEventListener('mouseover', () => {
       inputContainer.classList.remove('input-container-hover-light-effect');
       inputContainer.classList.add('input-container-hover-dark-effect');
       // toDoTitle.style.color = "white";
     })
 
     // remove light mode background-color on hover and replace it with dark mode background-color
-    toDoTitle.addEventListener('mouseover', function() {
+    toDoTitle.addEventListener('mouseover', () => {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
       toDoTitle.classList.add('todo-title-hover-light-mode');
       // toDoTitle.style.color = "white";
@@ -126,13 +126,13 @@ background.addEventListener('click', () => {
     background.innerText = "Dark Mode";
     container.style.backgroundColor = 'rgb(255, 255, 255)';
     // remove dark mode background-color on hover and replace it with light mode background-color
-    toDoTitle.addEventListener('mouseover', function() {
+    toDoTitle.addEventListener('mouseover', () => {
       toDoTitle.classList.add('todo-title-hover-dark-mode');
       toDoTitle.classList.remove('todo-title-hover-light-mode');
     })
 
     // toggle light mode and dark mode hover on mouseleave
-    toDoTitle.addEventListener('mouseleave', function() {
+    toDoTitle.addEventListener('mouseleave', () => {
       toDoTitle.classList.remove('todo-title-hover-dark-mode');
       toDoTitle.classList.add('todo-title-hover-light-mode');
     })
@@ -159,7 +159,7 @@ background.addEventListener('click', () => {
 });
 
 //get value for button and add event listener
-button.addEventListener('click', function() {
+button.addEventListener('click', () => {
   if(input.value == "") {
     addItemAlert(popup);
   } else {
@@ -254,7 +254,7 @@ function createList(userInput) {
   li.appendChild(p);
   li.appendChild(deleteTrash);
 
-  checkCircle.addEventListener('click', function() {
+  checkCircle.addEventListener('click', () => {
     p.classList.add("strike-out");
     editData(i, p);
     transferCompletedData(i, p, li, deleteTrash);
@@ -265,23 +265,23 @@ function createList(userInput) {
     }
   })
 
-  li.addEventListener("mouseover", function() {
+  li.addEventListener("mouseover", () => {
     deleteTrash.classList.remove("hide");
     deleteTrash.classList.add("show");
   });
 
-  li.addEventListener("mouseleave", function() {
+  li.addEventListener("mouseleave", () => {
     deleteTrash.classList.remove("show");
     deleteTrash.classList.add("hide");
   });
 
   // deleteTrash.addEventListener('click', deleteData(li));
-  deleteTrash.addEventListener('click', function() {
+  deleteTrash.addEventListener('click', () => {
   deleteData(li);
   });
 
   const container = document.getElementById("container");
-  container.addEventListener("click", function() {
+  container.addEventListener("click", () => {
     deleteEmptyList(p, li);
   });
 }
@@ -330,7 +330,7 @@ function transferCompletedData(i, p, li, deleteTrash) {
 
   if(i.className == "fas fa-check-circle") {
     deleteTrash4CompletedList.innerHTML = deleteTrash.innerHTML;
-    deleteTrash4CompletedList.addEventListener('click', function() {
+    deleteTrash4CompletedList.addEventListener('click', () => {
     deleteData(liCompleted);
     // completedListCount();
     });
