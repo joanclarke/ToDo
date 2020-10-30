@@ -313,9 +313,15 @@ a {
   border-radius: 1.5rem;
 }
   
-#input-container:hover, #input-container-hover-effect {
+#input-container:hover, .input-container-hover-dark-effect {
   background-color: rgba(24, 27, 54, 0.7);
 }
+
+/* 
+#input-container:hover, .input-container-hover-light-effect {
+  /* background-color: rgb(235, 241, 245); */
+  /* background-color: rgb(16, 64, 97); */
+/*} */
 
 input[type="text"] {
   width: 240px;

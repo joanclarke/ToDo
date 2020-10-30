@@ -98,12 +98,14 @@ background.addEventListener('click', () => {
     inputContainer.style.backgroundColor = "#282851";
     input.style.color = "#d1cccc";
     body.style.color = "#d1cccc";
-
+    // change input background color on mouseover --> trick for  css hover-like effect
     inputContainer.addEventListener('mouseover', () => {
-      inputContainer.classList.remove('input-container-hover-light-effect');
-      inputContainer.classList.add('input-container-hover-dark-effect');
-      // toDoTitle.style.color = "white";
-    })
+      inputContainer.style.backgroundColor = "#181b36b3";
+    }) 
+    // change input background color to original color on mouseout --> trick for  css hover-like effect
+    inputContainer.addEventListener('mouseout', () => {
+      inputContainer.style.backgroundColor = "#282851";
+    }) 
 
     // remove light mode background-color on hover and replace it with dark mode background-color
     toDoTitle.addEventListener('mouseover', () => {
@@ -125,6 +127,16 @@ background.addEventListener('click', () => {
   } else { // changes to list when in light mode 
     background.innerText = "Dark Mode";
     container.style.backgroundColor = 'rgb(255, 255, 255)';
+    inputContainer.style.backgroundColor = "#EBF1F5";
+    // change input background color on mouseover --> trick for  css hover-like effect 
+    inputContainer.addEventListener('mouseover', () => {
+        inputContainer.style.backgroundColor = "#dae7f0d3";
+    }) 
+    // change input background color to original color on mouseout --> trick for css hover-like effect
+    inputContainer.addEventListener('mouseout', () => {
+      inputContainer.style.backgroundColor = "#EBF1F5";
+  }) 
+
     // remove dark mode background-color on hover and replace it with light mode background-color
     toDoTitle.addEventListener('mouseover', () => {
       toDoTitle.classList.add('todo-title-hover-dark-mode');
@@ -139,7 +151,7 @@ background.addEventListener('click', () => {
 
     hr.style.background = "rgba(128, 128, 128, 0.5)";
     hr.style.height = "1px";
-    inputContainer.style.backgroundColor = "#EBF1F5";
+
     input.style.color = "#808080";
     body.style.color = "#808080";
     // plusCircle.style.color = 'green';
