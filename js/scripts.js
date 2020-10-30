@@ -172,7 +172,7 @@ button.addEventListener('click', () => {
 });
 
 // remove light mode and add dark mode background features
-function darkListStyle(el) {
+const darkListStyle = el => {
   for (let item of el) {
     item.classList.add('dark-list-style');
     item.classList.remove('light-list-style');
@@ -180,7 +180,7 @@ function darkListStyle(el) {
 }
 
 // remove dark mode and add light mode background features
-function lightListStyle(el) {
+let lightListStyle = el => {
   for (let item of el) {
     item.classList.remove('dark-list-style');
     item.classList.add('light-list-style');
@@ -188,7 +188,7 @@ function lightListStyle(el) {
 }
 
 // toggle between light and dark mode background features
-function toggleMenu() {
+const toggleMenu = () => {
   if(!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
@@ -204,13 +204,13 @@ function toggleMenu() {
 }
 
 // toggle popup 
-function addItemAlert(x) {
+const addItemAlert = x => {
   // let popup = document.getElementById("myPopup");
   x.classList.toggle("show");
 }
 
 //display user input on screen
-function pushData() {
+const pushData = () => {
   let inputText = input.value;   // get input value
   arr.push(inputText);   // append data to the array
   let text = "";
@@ -225,7 +225,7 @@ function pushData() {
 }
 
 //create list 
-function createList(userInput) {
+const createList = userInput => {
   let li = document.createElement("li");  // create list item
   document.getElementById('list').prepend(li);  //add list item to the top of the parent element (ul)
   li.setAttribute("class","list-item dark-list-style"); //set class attributes
@@ -287,24 +287,24 @@ function createList(userInput) {
 }
 
 // remove entire list element if p is empty
-function deleteEmptyList(p, li) {
+const deleteEmptyList = (p, li) => {
   if (p.innerHTML == "") {
     li.remove()
   } 
 }
 
 // Delete data/content
-function deleteData(x) {
+const deleteData = x => {
   x.remove();
 }
 
 //clear text from input field
-function clearInputField() {
+const clearInputField = () => {
   document.getElementById('inputText').value = "";
 }
  
 // user can edit content only when circle does not have a tick inside of it
-function editData(i, p) {
+const editData = (i, p) => {
   if(i.className == "fas fa-circle") {
     i.className = "fas fa-check-circle";
     p.setAttribute("contenteditable", "false"); //makes content uneditable
@@ -316,12 +316,12 @@ function editData(i, p) {
 }
 
 // shows total amount of completed items/to dos
-function completedListCount() {
+const completedListCount = () => {
   count.innerHTML = ul.childElementCount;//get total count of completed items/ to dos and show that number onscreen
 }
 
 //  transfer list completed data/content over to completed-list container
-function transferCompletedData(i, p, li, deleteTrash) {
+const transferCompletedData = (i, p, li, deleteTrash) => {
   let liCompleted = document.createElement("li");
   liCompleted.setAttribute("class","completed-list-item dark-list-style"); //set class attributes
   let checkCircleCompleted = document.createElement("span");
